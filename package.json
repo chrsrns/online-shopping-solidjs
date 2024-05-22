@@ -16,6 +16,9 @@
     "vite-plugin-solid": "^2.8.2"
   },
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.10.0",
+    "@typescript-eslint/parser": "^7.10.0",
+    "eslint": "^8.57.0",
     "solid-js": "^1.8.11"
   }
 }
