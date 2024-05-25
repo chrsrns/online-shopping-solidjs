@@ -37,7 +37,7 @@ const App: Component = () => {
                 Exercitation veniam consequat sunt nostrud amet.
               </p>
 
-              <p class="my-4 text-xl text-gray-600 dark:text-gray-300 md:mt-8">
+              <p class="mt-4 mb-8 text-xl text-gray-600 dark:text-gray-300 md:mt-8">
                 <span class="relative inline-block">
                   <span class="absolute inline-block w-full bottom-0.5 h-2 bg-yellow-300 dark:bg-gray-900"></span>
                   <span class="relative">
@@ -50,13 +50,13 @@ const App: Component = () => {
 
             <div class="relative">
               <img
-                class="absolute inset-x-0 bottom-0 -mb-6 -translate-x-1/2 scale-110 left-1/2"
+                class="absolute inset-x-0 bottom-0 -translate-x-1/2 md:scale-110 left-1/2"
                 src="src/assets/blob-floor1.svg"
                 alt=""
               />
 
               <img
-                class="relative w-full xl:max-w-lg xl:mx-auto 2xl:origin-bottom 2xl:scale-110"
+                class="relative w-full xl:max-w-lg xl:mx-auto 2xl:origin-bottom scale-90 md:scale-100 2xl:scale-110"
                 src="src/assets/separate-interior-ALL.png"
                 alt=""
               />
