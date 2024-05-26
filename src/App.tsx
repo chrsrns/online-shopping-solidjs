@@ -4,25 +4,27 @@ import logo from "./logo.svg";
 
 const App: Component = () => {
   return (
-    <div class="text-center">
-      <div class="relative h-screen w-full">
-        <img
-          src="https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg"
-          alt="Background Image"
-          class="object-cover object-center w-full h-full"
-        />
-        <img
-          src=""
-          alt="Background Image"
-          class="absolute inset-0 w-full h-full object-cover filter blur-sm"
-        />
-        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div class="absolute inset-0 flex flex-col items-center justify-center">
-          <h1 class="text-4xl text-white font-bold">Hello, World!</h1>
-          <p class="text-xl text-white mt-4">This is a text</p>
+    <div class="w-screen h-screen overflow-y-auto flex flex-col flex-shrink-0 snap-y snap-mandatory">
+      <div class="snap-center">
+        <div class="relative h-screen w-full">
+          <img
+            src="https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg"
+            alt="Background Image"
+            class="object-cover object-center w-full h-full"
+          />
+          <img
+            src=""
+            alt="Background Image"
+            class="absolute inset-0 w-full h-full object-cover filter blur-sm"
+          />
+          <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+          <div class="absolute inset-0 flex flex-col items-center justify-center">
+            <h1 class="text-4xl text-white font-bold">Hello, World!</h1>
+            <p class="text-xl text-white mt-4">This is a text</p>
+          </div>
         </div>
       </div>
-      <section class="min-h-screen flex flex-col justify-center items-center pt-10 overflow-hidden bg-gray-50 dark:bg-gray-800 md:pt-0 sm:pt-16 2xl:pt-16">
+      <section class="min-h-screen flex flex-col justify-center items-center py-8 overflow-hidden bg-gray-50 dark:bg-gray-800 md:pt-0 sm:pt-16 2xl:pt-16 snap-center">
         <div class="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
           <div class="grid items-center grid-cols-1 md:grid-cols-2">
             <div>
