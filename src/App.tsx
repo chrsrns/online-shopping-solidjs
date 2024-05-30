@@ -2,7 +2,6 @@ import { onMount, type Component } from "solid-js";
 
 // START keen-slider imports
 import KeenSlider, { KeenSliderInstance, KeenSliderPlugin } from "keen-slider";
-import "keen-slider/keen-slider.min.css";
 
 import LandingHeroSection from "./components/LandingPage/HeroSection";
 import LandingAnimationSection from "./components/LandingPage/LandingAnimationSection";
