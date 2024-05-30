@@ -1,7 +1,5 @@
 import { onMount, type Component } from "solid-js";
 
-import logo from "./logo.svg";
-
 // START keen-slider imports
 import KeenSlider, { KeenSliderInstance, KeenSliderPlugin } from "keen-slider";
 import "keen-slider/keen-slider.min.css";
