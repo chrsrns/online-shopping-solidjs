@@ -3,11 +3,68 @@ import { onMount, type Component } from "solid-js";
 import logo from "./logo.svg";
 
 // START keen-slider imports
-import KeenSlider from "keen-slider";
+import KeenSlider, { KeenSliderInstance, KeenSliderPlugin } from "keen-slider";
 import "keen-slider/keen-slider.min.css";
 
 const App: Component = () => {
   onMount(() => {
+    const WheelControls: KeenSliderPlugin = (slider: KeenSliderInstance) => {
+      let touchTimeout: ReturnType<typeof setTimeout>;
+      let position: {
+        x: number;
+        y: number;
+      };
+      let wheelActive: boolean;
+
+      function dispatch(e: WheelEvent, name: string) {
+        position.x -= e.deltaX;
+        position.y -= e.deltaY;
+        slider.container.dispatchEvent(
+          new CustomEvent(name, {
+            detail: {
+              x: position.x,
+              y: position.y,
+            },
+          }),
+        );
+      }
+
+      function wheelStart(e: WheelEvent) {
+        position = {
+          x: e.pageX,
+          y: e.pageY,
+        };
+        dispatch(e, "ksDragStart");
+      }
+
+      function wheel(e: WheelEvent) {
+        dispatch(e, "ksDrag");
+      }
+
+      function wheelEnd(e: WheelEvent) {
+        dispatch(e, "ksDragEnd");
+      }
+
+      function eventWheel(e: WheelEvent) {
+        e.preventDefault();
+        if (!wheelActive) {
+          wheelStart(e);
+          wheelActive = true;
+        }
+        wheel(e);
+        clearTimeout(touchTimeout);
+        touchTimeout = setTimeout(() => {
+          wheelActive = false;
+          wheelEnd(e);
+        }, 50);
+      }
+
+      slider.on("created", () => {
+        slider.container.addEventListener("wheel", eventWheel, {
+          passive: false,
+        });
+      });
+    };
     const keenSlider = new KeenSlider(
       "#keen-slider",
       {
@@ -27,7 +84,7 @@ const App: Component = () => {
           },
         },
       },
-      [],
+      [WheelControls],
     );
 
     const keenSliderPrevious = document.getElementById("keen-slider-previous");
@@ -198,7 +255,6 @@ const App: Component = () => {
                   </button>
                 </div>
               </div>
-
               <div class="lg:col-span-2 lg:mx-0">
                 <div id="keen-slider" class="keen-slider">
                   <div class="keen-slider__slide">
