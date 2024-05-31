@@ -51,6 +51,36 @@ const StarsRating = () => (
   </div>
 );
 
+interface TestimonialKeenSlideProps {
+  slideHeader: string;
+  slideContent: string;
+  slideAuthor: string;
+}
+const TestimonialKeenSlide = (props: TestimonialKeenSlideProps) => {
+  return (
+    <div class="keen-slider__slide">
+      <blockquote class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
+        <div>
+          <StarsRating />
+          <div class="mt-4">
+            <p class="text-2xl font-bold text-rose-600 sm:text-3xl">
+              {props.slideHeader}
+            </p>
+
+            <p class="mt-4 leading-relaxed text-gray-700">
+              {props.slideContent}
+            </p>
+          </div>
+        </div>
+
+        <footer class="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+          &mdash; {props.slideAuthor}
+        </footer>
+      </blockquote>
+    </div>
+  );
+};
+
 interface TestimonialKeenSliderProps {
   children: JSX.Element;
 }
@@ -224,82 +254,52 @@ const LandingTestimonialsSection = () => {
               </div>
             </div>
             <TestimonialKeenSlider>
-              <div class="keen-slider__slide">
-                <blockquote class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
-                  <div>
-                    <StarsRating />
-                    <div class="mt-4">
-                      <p class="text-2xl font-bold text-rose-600 sm:text-3xl">
-                        Stayin' Alive 1
-                      </p>
+              <TestimonialKeenSlide
+                slideHeader="Testimonial 1"
+                slideContent="
+                  No, Rose, they are not breathing. And they have no arms
+                  or legs … Where are they? You know what? If we come
+                  across somebody with no arms or legs, do we bother
+                  resuscitating them? I mean, what quality of life do we
+                  have there?
+                "
+                slideAuthor="Christian Aranas"
+              />
+              <TestimonialKeenSlide
+                slideHeader="Testimonial 2"
+                slideContent="
+                  No, Rose, they are not breathing. And they have no arms
+                  or legs … Where are they? You know what? If we come
+                  across somebody with no arms or legs, do we bother
+                  resuscitating them? I mean, what quality of life do we
+                  have there?
+                "
+                slideAuthor="Christian Aranas"
+              />
 
-                      <p class="mt-4 leading-relaxed text-gray-700">
-                        No, Rose, they are not breathing. And they have no arms
-                        or legs … Where are they? You know what? If we come
-                        across somebody with no arms or legs, do we bother
-                        resuscitating them? I mean, what quality of life do we
-                        have there?
-                      </p>
-                    </div>
-                  </div>
+              <TestimonialKeenSlide
+                slideHeader="Testimonial 3"
+                slideContent="
+                  No, Rose, they are not breathing. And they have no arms
+                  or legs … Where are they? You know what? If we come
+                  across somebody with no arms or legs, do we bother
+                  resuscitating them? I mean, what quality of life do we
+                  have there?
+                "
+                slideAuthor="Christian Aranas"
+              />
 
-                  <footer class="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
-                    &mdash; Michael Scott
-                  </footer>
-                </blockquote>
-              </div>
-
-              <div class="keen-slider__slide">
-                <blockquote class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
-                  <div>
-                    <StarsRating />
-
-                    <div class="mt-4">
-                      <p class="text-2xl font-bold text-rose-600 sm:text-3xl">
-                        Stayin' Alive 2
-                      </p>
-
-                      <p class="mt-4 leading-relaxed text-gray-700">
-                        No, Rose, they are not breathing. And they have no arms
-                        or legs … Where are they? You know what? If we come
-                        across somebody with no arms or legs, do we bother
-                        resuscitating them? I mean, what quality of life do we
-                        have there?
-                      </p>
-                    </div>
-                  </div>
-
-                  <footer class="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
-                    &mdash; Michael Scott
-                  </footer>
-                </blockquote>
-              </div>
-
-              <div class="keen-slider__slide">
-                <blockquote class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
-                  <div>
-                    <StarsRating />
-
-                    <div class="mt-4">
-                      <p class="text-2xl font-bold text-rose-600 sm:text-3xl">
-                        Stayin' Alive 3
-                      </p>
-
-                      <p class="mt-4 leading-relaxed text-gray-700">
-                        No, Rose, they are not breathing. And they have no arms
-                        or legs … Where are they? You know what? If we come
-                        across somebody with no arms or legs, do we bother
-                        resuscitating them? I mean, what quality of life do we
-                        have there?
-                      </p>
-                    </div>
-                  </div>
-
-                  <footer class="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
-                    &mdash; Michael Scott
-                  </footer>
-                </blockquote>
-              </div>
+              <TestimonialKeenSlide
+                slideHeader="Testimonial 4"
+                slideContent="
+                  No, Rose, they are not breathing. And they have no arms
+                  or legs … Where are they? You know what? If we come
+                  across somebody with no arms or legs, do we bother
+                  resuscitating them? I mean, what quality of life do we
+                  have there?
+                "
+                slideAuthor="Christian Aranas"
+              />
             </TestimonialKeenSlider>
           </div>
 
