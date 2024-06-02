@@ -1,10 +1,52 @@
-import { onMount } from "solid-js";
+import { For, onMount } from "solid-js";
 // START keen-slider imports
 import KeenSlider, { KeenSliderInstance, KeenSliderPlugin } from "keen-slider";
 import TestimonialKeenSlider from "./TestimonialKeenSlider";
 import TestimonialKeenSlide from "./TestimonialKeenSlide";
 
 const LandingTestimonialsSection = () => {
+  const slidesData: { header: string; content: string; author: string }[] = [
+    {
+      header: "Testimonial 1",
+      content: `No, Rose, they are not breathing. And they have no arms
+        or legs … Where are they? You know what? If we come
+        across somebody with no arms or legs, do we bother
+        resuscitating them? I mean, what quality of life do we
+        have there?
+        `,
+      author: "Christian Aranas",
+    },
+    {
+      header: "Testimonial 2",
+      content: `No, Rose, they are not breathing. And they have no arms
+        or legs … Where are they? You know what? If we come
+        across somebody with no arms or legs, do we bother
+        resuscitating them? I mean, what quality of life do we
+        have there?
+        `,
+      author: "Christian Aranas",
+    },
+    {
+      header: "Testimonial 3",
+      content: `No, Rose, they are not breathing. And they have no arms
+        or legs … Where are they? You know what? If we come
+        across somebody with no arms or legs, do we bother
+        resuscitating them? I mean, what quality of life do we
+        have there?
+        `,
+      author: "Christian Aranas",
+    },
+    {
+      header: "Testimonial 4",
+      content: `No, Rose, they are not breathing. And they have no arms
+        or legs … Where are they? You know what? If we come
+        across somebody with no arms or legs, do we bother
+        resuscitating them? I mean, what quality of life do we
+        have there?
+        `,
+      author: "Christian Aranas",
+    },
+  ];
   onMount(() => {
     const WheelControls: KeenSliderPlugin = (slider: KeenSliderInstance) => {
       let touchTimeout: ReturnType<typeof setTimeout>;
@@ -165,52 +207,15 @@ const LandingTestimonialsSection = () => {
               </div>
             </div>
             <TestimonialKeenSlider>
-              <TestimonialKeenSlide
-                slideHeader="Testimonial 1"
-                slideContent="
-                  No, Rose, they are not breathing. And they have no arms
-                  or legs … Where are they? You know what? If we come
-                  across somebody with no arms or legs, do we bother
-                  resuscitating them? I mean, what quality of life do we
-                  have there?
-                "
-                slideAuthor="Christian Aranas"
-              />
-              <TestimonialKeenSlide
-                slideHeader="Testimonial 2"
-                slideContent="
-                  No, Rose, they are not breathing. And they have no arms
-                  or legs … Where are they? You know what? If we come
-                  across somebody with no arms or legs, do we bother
-                  resuscitating them? I mean, what quality of life do we
-                  have there?
-                "
-                slideAuthor="Christian Aranas"
-              />
-
-              <TestimonialKeenSlide
-                slideHeader="Testimonial 3"
-                slideContent="
-                  No, Rose, they are not breathing. And they have no arms
-                  or legs … Where are they? You know what? If we come
-                  across somebody with no arms or legs, do we bother
-                  resuscitating them? I mean, what quality of life do we
-                  have there?
-                "
-                slideAuthor="Christian Aranas"
-              />
-
-              <TestimonialKeenSlide
-                slideHeader="Testimonial 4"
-                slideContent="
-                  No, Rose, they are not breathing. And they have no arms
-                  or legs … Where are they? You know what? If we come
-                  across somebody with no arms or legs, do we bother
-                  resuscitating them? I mean, what quality of life do we
-                  have there?
-                "
-                slideAuthor="Christian Aranas"
-              />
+              <For each={slidesData}>
+                {(item, index) => (
+                  <TestimonialKeenSlide
+                    slideHeader={item.header}
+                    slideContent={item.content}
+                    slideAuthor={item.author}
+                  />
+                )}
+              </For>
             </TestimonialKeenSlider>
           </div>
 
