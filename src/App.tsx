@@ -1,8 +1,8 @@
+import { RouteSectionProps } from "@solidjs/router";
 import { type Component } from "solid-js";
-import LandingPage from "./components/LandingPage";
 
-const App: Component = () => {
-  return <LandingPage></LandingPage>;
+const App: Component<RouteSectionProps<unknown>> = (props) => {
+  return <>{props.children}</>;
 };
 
 export default App;
