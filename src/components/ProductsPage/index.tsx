@@ -4,7 +4,7 @@ const ProductsPage = () => {
   return (
     <div>
       <Topbar />
-      <h1 class="text-4xl text-center py-20">All Items</h1>
+      <h1 class="text-4xl text-center pb-20 pt-10">All Items</h1>
       <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8 px-16">
         <a href="#" class="group relative block overflow-hidden">
           <button class="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
