@@ -1,3 +1,5 @@
+import { A } from "@solidjs/router";
+
 const Topbar = () => {
   return (
     <header class="bg-white">
@@ -21,13 +23,13 @@ const Topbar = () => {
           <nav aria-label="Global">
             <ul class="flex items-center gap-6 text-sm">
               <li>
-                <a
+                <A
                   class="text-gray-500 text-base transition hover:text-gray-500/75"
-                  href="#"
+                  href="/"
                 >
                   {" "}
                   Home{" "}
-                </a>
+                </A>
               </li>
 
               <li>
@@ -41,13 +43,13 @@ const Topbar = () => {
               </li>
 
               <li>
-                <a
+                <A
                   class="text-gray-500 text-base transition hover:text-gray-500/75"
-                  href="#"
+                  href="/shop"
                 >
                   {" "}
                   Shop{" "}
-                </a>
+                </A>
               </li>
             </ul>
           </nav>
