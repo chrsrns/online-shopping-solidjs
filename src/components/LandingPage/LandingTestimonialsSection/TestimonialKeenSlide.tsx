@@ -8,7 +8,7 @@ interface TestimonialKeenSlideProps {
 const TestimonialKeenSlide = (props: TestimonialKeenSlideProps) => {
   return (
     <div class="keen-slider__slide">
-      <blockquote class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
+      <blockquote class="flex h-full flex-col justify-between rounded-md bg-white p-6 shadow-sm sm:p-8 lg:p-12">
         <div>
           <StarsRating />
           <div class="mt-4">
