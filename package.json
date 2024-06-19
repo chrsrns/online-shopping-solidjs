@@ -25,6 +25,7 @@
     "@typescript-eslint/parser": "^7.10.0",
     "eslint": "^8.57.0",
     "keen-slider": "^6.8.6",
+    "prettier-plugin-tailwindcss": "^0.6.5",
     "solid-js": "^1.8.11"
   }
 }
