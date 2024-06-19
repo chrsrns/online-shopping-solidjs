@@ -1,29 +1,29 @@
 const LandingProductsCarousel = () => {
   return (
     <main class="snap-center">
-      <div class="w-full h-screen py-8 px-8 overflow-x-auto flex gap-2 items-center snap-x snap-mandatory">
-        <div class="h-full w-full flex-grow-1 basis-full flex-shrink-0 flex flex-col justify-center items-center bg-[#bae] snap-center">
+      <div class="flex h-screen w-full snap-x snap-mandatory items-center gap-2 overflow-x-auto px-8 py-8">
+        <div class="flex-grow-1 flex h-full w-full flex-shrink-0 basis-full snap-center flex-col items-center justify-center bg-[#bae]">
           1
         </div>
-        <div class="h-full w-full flex-grow-1 basis-full flex-shrink-0 flex flex-col justify-center items-center bg-[#bae] snap-center">
+        <div class="flex-grow-1 flex h-full w-full flex-shrink-0 basis-full snap-center flex-col items-center justify-center bg-[#bae]">
           2
         </div>
-        <div class="h-full w-full flex-grow-1 basis-full flex-shrink-0 flex flex-col justify-center items-center bg-[#bae] snap-center">
+        <div class="flex-grow-1 flex h-full w-full flex-shrink-0 basis-full snap-center flex-col items-center justify-center bg-[#bae]">
           3
         </div>
-        <div class="h-full w-full flex-grow-1 basis-full flex-shrink-0 flex flex-col justify-center items-center bg-[#bae] snap-center">
+        <div class="flex-grow-1 flex h-full w-full flex-shrink-0 basis-full snap-center flex-col items-center justify-center bg-[#bae]">
           4
         </div>
-        <div class="h-full w-full flex-grow-1 basis-full flex-shrink-0 flex flex-col justify-center items-center bg-[#bae] snap-center">
+        <div class="flex-grow-1 flex h-full w-full flex-shrink-0 basis-full snap-center flex-col items-center justify-center bg-[#bae]">
           5
         </div>
-        <div class="h-full w-full flex-grow-1 basis-full flex-shrink-0 flex flex-col justify-center items-center bg-[#bae] snap-center">
+        <div class="flex-grow-1 flex h-full w-full flex-shrink-0 basis-full snap-center flex-col items-center justify-center bg-[#bae]">
           6
         </div>
-        <div class="h-full w-full flex-grow-1 basis-full flex-shrink-0 flex flex-col justify-center items-center bg-[#bae] snap-center">
+        <div class="flex-grow-1 flex h-full w-full flex-shrink-0 basis-full snap-center flex-col items-center justify-center bg-[#bae]">
           7
         </div>
-        <div class="h-full w-full flex-grow-1 basis-full flex-shrink-0 flex flex-col justify-center items-center bg-[#bae] snap-center">
+        <div class="flex-grow-1 flex h-full w-full flex-shrink-0 basis-full snap-center flex-col items-center justify-center bg-[#bae]">
           8
         </div>
       </div>
