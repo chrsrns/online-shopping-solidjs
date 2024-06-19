@@ -12,7 +12,7 @@ const TestimonialKeenSlide = (props: TestimonialKeenSlideProps) => {
         <div>
           <StarsRating />
           <div class="mt-4">
-            <p class="text-2xl font-bold text-rose-600 sm:text-3xl">
+            <p class="text-2xl font-bold text-jet sm:text-3xl">
               {props.slideHeader}
             </p>
 

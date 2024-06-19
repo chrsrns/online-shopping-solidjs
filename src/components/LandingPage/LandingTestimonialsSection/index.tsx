@@ -148,15 +148,15 @@ const LandingTestimonialsSection = () => {
   });
   return (
     <div class="snap-center">
-      <section class="h-screen bg-gray-50">
+      <section class="h-screen bg-gray-50 dark:bg-walnut_brown-300">
         <div class="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
           <div class="flex flex-col gap-8 items-center lg:items-start">
             <div class="max-w-xl text-center lg:text-left rtl:lg:text-right">
-              <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
                 Don't just take our word for it...
               </h2>
 
-              <p class="mt-4 text-gray-700">
+              <p class="mt-4 text-gray-700 dark:text-walnut_brown-900">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Voluptas veritatis illo placeat harum porro optio fugit a culpa
                 sunt id!
@@ -166,7 +166,7 @@ const LandingTestimonialsSection = () => {
                 <button
                   aria-label="Previous slide"
                   id="keen-slider-previous-desktop"
-                  class="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+                  class="rounded-full border border-jet dark:border-walnut_brown-900 p-3 text-jet dark:text-walnut_brown-900 transition hover:bg-jet hover:text-white dark:hover:bg-walnut_brown-900 dark:hover:text-black"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -187,7 +187,7 @@ const LandingTestimonialsSection = () => {
                 <button
                   aria-label="Next slide"
                   id="keen-slider-next-desktop"
-                  class="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+                  class="rounded-full border border-jet dark:border-walnut_brown-900 p-3 text-jet dark:text-walnut_brown-900 transition hover:bg-jet hover:text-white dark:hover:bg-walnut_brown-900 dark:hover:text-black"
                 >
                   <svg
                     class="size-5 rtl:rotate-180"
