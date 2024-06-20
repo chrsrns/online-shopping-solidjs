@@ -1,10 +1,11 @@
-import { onMount } from "solid-js";
+import { createEffect, onMount } from "solid-js";
 import Topbar from "../Topbar";
 import LandingHeroSection from "./HeroSection";
 import LandingAnimationSection from "./LandingAnimationSection";
 import LandingDirectToShop from "./LandingDirectToShop";
 import LandingProductsCarousel from "./LandingProductsCarousel";
 import LandingTestimonialsSection from "./LandingTestimonialsSection";
+import { createMediaQuery } from "@solid-primitives/media";
 
 const LandingPage = () => {
   let topBar!: HTMLDivElement;
@@ -16,6 +17,8 @@ const LandingPage = () => {
   let landingTestimonials!: HTMLDivElement;
   let landingShop!: HTMLDivElement;
 
+  const isSmall = createMediaQuery("(max-width: 767px)");
+
   onMount(() => {
     const calcedHeight = `calc(100vh - ${topBar.clientHeight}px)`;
 
@@ -24,7 +27,12 @@ const LandingPage = () => {
     landingAnimation.style.setProperty("height", calcedHeight);
     landingProducts.style.setProperty("height", calcedHeight);
     landingTestimonials.style.setProperty("height", calcedHeight);
-    landingShop.style.setProperty("height", calcedHeight);
+  });
+
+  createEffect(() => {
+    const calcedHeight = `calc(100vh - ${topBar.clientHeight}px)`;
+    if (isSmall()) landingShop.style.setProperty("height", calcedHeight);
+    else landingShop.style.removeProperty("height");
   });
   return (
     <div>
