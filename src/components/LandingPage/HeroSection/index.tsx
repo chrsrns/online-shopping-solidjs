@@ -1,7 +1,9 @@
-const LandingHeroSection = () => {
+import { ComponentRefProps } from "../../../ComponentRefProps";
+
+const LandingHeroSection = (props: ComponentRefProps) => {
   return (
     <div class="snap-center">
-      <div class="relative h-screen w-full">
+      <div ref={props.ref} class="relative w-full">
         <img
           src="https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg"
           alt="Background Image"

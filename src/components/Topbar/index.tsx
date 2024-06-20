@@ -1,9 +1,10 @@
 import { A } from "@solidjs/router";
+import { ComponentRefProps } from "../../ComponentRefProps";
 
-const Topbar = () => {
+const Topbar = (props: ComponentRefProps) => {
   return (
-    <header class="bg-white">
-      <div class="mx-auto flex h-16 max-w-screen-xl items-center justify-center md:justify-start gap-8 px-4 sm:px-6 lg:px-8">
+    <header ref={props.ref} class="bg-white">
+      <div class="mx-auto flex h-16 max-w-screen-xl items-center justify-center gap-8 px-4 sm:px-6 md:justify-start lg:px-8">
         <a class="block text-yellow-400" href="#">
           <span class="sr-only">Home</span>
           <svg
@@ -24,7 +25,7 @@ const Topbar = () => {
             <ul class="flex items-center gap-6 text-sm">
               <li>
                 <A
-                  class="text-gray-500 text-base transition hover:text-gray-500/75"
+                  class="text-base text-gray-500 transition hover:text-gray-500/75"
                   href="/"
                 >
                   {" "}
@@ -34,7 +35,7 @@ const Topbar = () => {
 
               <li>
                 <a
-                  class="text-gray-500 text-base transition hover:text-gray-500/75"
+                  class="text-base text-gray-500 transition hover:text-gray-500/75"
                   href="#"
                 >
                   {" "}
@@ -44,7 +45,7 @@ const Topbar = () => {
 
               <li>
                 <A
-                  class="text-gray-500 text-base transition hover:text-gray-500/75"
+                  class="text-base text-gray-500 transition hover:text-gray-500/75"
                   href="/shop"
                 >
                   {" "}
@@ -54,8 +55,8 @@ const Topbar = () => {
             </ul>
           </nav>
         </div>
-        <div class="flex items-center gap-4 hidden">
-          <button class="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 ">
+        <div class="flex hidden items-center gap-4">
+          <button class="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75">
             <span class="sr-only">Toggle menu</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"

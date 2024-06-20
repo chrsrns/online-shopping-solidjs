@@ -3,8 +3,9 @@ import { For, onMount } from "solid-js";
 import KeenSlider, { KeenSliderInstance, KeenSliderPlugin } from "keen-slider";
 import TestimonialKeenSlider from "./TestimonialKeenSlider";
 import TestimonialKeenSlide from "./TestimonialKeenSlide";
+import { ComponentRefProps } from "../../../ComponentRefProps";
 
-const LandingTestimonialsSection = () => {
+const LandingTestimonialsSection = (props: ComponentRefProps) => {
   const slidesData: { header: string; content: string; author: string }[] = [
     {
       header: "Testimonial 1",
@@ -148,7 +149,7 @@ const LandingTestimonialsSection = () => {
   });
   return (
     <div class="snap-center">
-      <section class="h-screen bg-gray-50 dark:bg-walnut_brown-300">
+      <section ref={props.ref} class="bg-gray-50 dark:bg-walnut_brown-300">
         <div class="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
           <div class="flex flex-col items-center gap-8 lg:items-start">
             <div class="max-w-xl text-center lg:text-left rtl:lg:text-right">
