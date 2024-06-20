@@ -1,4 +1,4 @@
-import { createEffect } from "solid-js";
+import { onMount } from "solid-js";
 import Topbar from "../Topbar";
 import LandingHeroSection from "./HeroSection";
 import LandingAnimationSection from "./LandingAnimationSection";
@@ -16,7 +16,7 @@ const LandingPage = () => {
   let landingTestimonials!: HTMLDivElement;
   let landingShop!: HTMLDivElement;
 
-  createEffect(() => {
+  onMount(() => {
     const calcedHeight = `calc(100vh - ${topBar.clientHeight}px)`;
 
     myContents.style.setProperty("height", calcedHeight);
