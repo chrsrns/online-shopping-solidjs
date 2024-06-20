@@ -218,52 +218,6 @@ const LandingTestimonialsSection = () => {
               </For>
             </TestimonialKeenSlider>
           </div>
-
-          {/*
-              <div class="mt-8 flex justify-center gap-4 lg:hidden">
-                <button
-                  aria-label="Previous slide"
-                  id="keen-slider-previous"
-                  class="rounded-full border border-rose-600 p-4 text-rose-600 transition hover:bg-rose-600 hover:text-white"
-                >
-                  <svg
-                    class="size-5 -rotate-180 transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9 5l7 7-7 7"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                    />
-                  </svg>
-                </button>
-
-              <button
-                aria-label="Next slide"
-                id="keen-slider-next"
-                class="rounded-full border border-rose-600 p-4 text-rose-600 transition hover:bg-rose-600 hover:text-white"
-              >
-                <svg
-                  class="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9 5l7 7-7 7"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                  />
-                </svg>
-              </button>
-            </div>
-            */}
         </div>
       </section>
     </div>
