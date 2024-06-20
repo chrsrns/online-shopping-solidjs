@@ -5,7 +5,7 @@ const LandingHeroSection = (props: ComponentRefProps) => {
     <div class="snap-center">
       <div ref={props.ref} class="relative w-full">
         <img
-          src="https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg"
+          src="src/assets/pexels-photo-271816.jpeg"
           alt="Background Image"
           class="h-full w-full object-cover object-center"
         />
