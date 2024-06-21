@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@solid-primitives/media": "^2.2.9",
+    "@solid-primitives/scheduled": "^1.4.3",
     "@solidjs/router": "^0.13.5",
     "@typescript-eslint/eslint-plugin": "^7.10.0",
     "@typescript-eslint/parser": "^7.10.0",
