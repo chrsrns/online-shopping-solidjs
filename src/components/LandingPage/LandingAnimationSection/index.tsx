@@ -1,6 +1,21 @@
 import { ComponentRefProps } from "../../../ComponentRefProps";
 
-const LandingAnimationSection = (props: ComponentRefProps) => {
+interface LandingAnimationSectionProps extends ComponentRefProps {
+  animate: boolean;
+}
+
+const LandingAnimationSection = (props: LandingAnimationSectionProps) => {
+  let furn_chair!: HTMLImageElement;
+  let furn_worktable!: HTMLImageElement;
+  let furn_bed!: HTMLImageElement;
+  let furn_macpc!: HTMLImageElement;
+  let furn_shelfdecor!: HTMLImageElement;
+  let furn_tablelamp!: HTMLImageElement;
+  let furn_wallbookshelf!: HTMLImageElement;
+  let furn_wallpainting!: HTMLImageElement;
+  let furn_wallshelf!: HTMLImageElement;
+  let furn_wallstickies!: HTMLImageElement;
+
   return (
     <div class="snap-center">
       <section
@@ -39,11 +54,73 @@ const LandingAnimationSection = (props: ComponentRefProps) => {
                 alt=""
               />
 
-              <img
-                class="relative w-full scale-90 md:scale-100 xl:mx-auto xl:max-w-lg 2xl:origin-bottom 2xl:scale-110"
-                src="src/assets/separate-interior-ALL.png"
-                alt=""
-              />
+              <div class="relative w-full scale-90 md:scale-100 xl:mx-auto xl:max-w-lg 2xl:origin-bottom 2xl:scale-110">
+                <img
+                  class="relative"
+                  src="src/assets/photos-furniture/furn-space.png"
+                  alt=""
+                />
+                <img
+                  ref={furn_chair}
+                  class="absolute left-0 top-0"
+                  src="src/assets/photos-furniture/furn-chair.png"
+                  alt=""
+                />
+                <img
+                  ref={furn_worktable}
+                  class="absolute left-0 top-0"
+                  src="src/assets/photos-furniture/furn-worktable.png"
+                  alt=""
+                />
+                <img
+                  ref={furn_bed}
+                  class="absolute left-0 top-0"
+                  src="src/assets/photos-furniture/furn-bed.png"
+                  alt=""
+                />
+                <img
+                  ref={furn_macpc}
+                  class="absolute left-0 top-0"
+                  src="src/assets/photos-furniture/furn-macpc.png"
+                  alt=""
+                />
+                <img
+                  ref={furn_shelfdecor}
+                  class="absolute left-0 top-0"
+                  src="src/assets/photos-furniture/furn-shelfdecor.png"
+                  alt=""
+                />
+                <img
+                  ref={furn_tablelamp}
+                  class="absolute left-0 top-0"
+                  src="src/assets/photos-furniture/furn-tablelamp.png"
+                  alt=""
+                />
+                <img
+                  ref={furn_wallbookshelf}
+                  class="absolute left-0 top-0"
+                  src="src/assets/photos-furniture/furn-wallbookshelf.png"
+                  alt=""
+                />
+                <img
+                  ref={furn_wallpainting}
+                  class="absolute left-0 top-0"
+                  src="src/assets/photos-furniture/furn-wallpainting.png"
+                  alt=""
+                />
+                <img
+                  ref={furn_wallshelf}
+                  class="absolute left-0 top-0"
+                  src="src/assets/photos-furniture/furn-wallshelf.png"
+                  alt=""
+                />
+                <img
+                  ref={furn_wallstickies}
+                  class="absolute left-0 top-0"
+                  src="src/assets/photos-furniture/furn-wallstickies.png"
+                  alt=""
+                />
+              </div>
             </div>
           </div>
         </div>
