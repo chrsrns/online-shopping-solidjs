@@ -3,9 +3,9 @@ import { ComponentRefProps } from "../../ComponentRefProps";
 
 const Topbar = (props: ComponentRefProps) => {
   return (
-    <header ref={props.ref} class="bg-white">
+    <header ref={props.ref} class="bg-white dark:bg-jet">
       <div class="mx-auto flex h-16 max-w-screen-xl items-center justify-center gap-8 px-4 sm:px-6 md:justify-start lg:px-8">
-        <a class="block text-yellow-400" href="#">
+        <a class="block text-dim_gray dark:text-timberwolf" href="#">
           <span class="sr-only">Home</span>
           <svg
             class="h-8"
@@ -25,7 +25,7 @@ const Topbar = (props: ComponentRefProps) => {
             <ul class="flex items-center gap-6 text-sm">
               <li>
                 <A
-                  class="text-base text-gray-500 transition hover:text-gray-500/75"
+                  class="text-base text-gray-500 transition hover:text-gray-500/75 dark:text-gray-200 dark:hover:text-gray-200/75"
                   href="/"
                 >
                   {" "}
@@ -35,7 +35,7 @@ const Topbar = (props: ComponentRefProps) => {
 
               <li>
                 <a
-                  class="text-base text-gray-500 transition hover:text-gray-500/75"
+                  class="text-base text-gray-500 transition hover:text-gray-500/75 dark:text-gray-200 dark:hover:text-gray-200/75"
                   href="#"
                 >
                   {" "}
@@ -45,7 +45,7 @@ const Topbar = (props: ComponentRefProps) => {
 
               <li>
                 <A
-                  class="text-base text-gray-500 transition hover:text-gray-500/75"
+                  class="text-base text-gray-500 transition hover:text-gray-500/75 dark:text-gray-200 dark:hover:text-gray-200/75"
                   href="/shop"
                 >
                   {" "}
