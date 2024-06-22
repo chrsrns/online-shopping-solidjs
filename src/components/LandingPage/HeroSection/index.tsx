@@ -11,8 +11,8 @@ const LandingHeroSection = (props: ComponentRefProps) => {
         />
         <div class="absolute inset-0 bg-black bg-opacity-50"></div>
         <div class="absolute inset-0 flex flex-col items-center justify-center">
-          <h1 class="text-4xl font-bold text-white">Hello, World!</h1>
-          <p class="mt-4 text-xl text-white">This is a text</p>
+          <h1 class="text-4xl font-bold text-white">Hero Sample Text</h1>
+          <p class="mt-4 text-xl text-white">This is a sample text</p>
         </div>
       </div>
     </div>
