@@ -46,6 +46,17 @@ const LandingPage = () => {
   function getCenteredChild(e: Event) {
     //  can't use native elementFromPoint for better performance; it gets the topmost element
     if (e.target instanceof HTMLElement) {
+      // const rect = e.target.getBoundingClientRect();
+      // const centerCell = document.elementFromPoint(
+      //   rect.left + e.target.offsetWidth / 2,
+      //   rect.top + e.target.offsetHeight / 2,
+      // );
+      // console.log(centerCell);
+      // // for (const cell of e.target.getElementsByClassName(selected)) {
+      // //   cell.classList.remove(selected);
+      // // }
+      // // centerCell?.classList.add(selected);
+      // Old version for backward compatibility
       const rect = e.target.getBoundingClientRect();
       for (const cell of e.target.children) {
         if (cell instanceof HTMLElement) {
@@ -72,6 +83,21 @@ const LandingPage = () => {
       }
     }
   }
+  // function debounce(func: Function, wait: number, immediate: boolean) {
+  //   var timeout;
+  //   return function () {
+  //     var context = this,
+  //       args = arguments;
+  //     var later = function () {
+  //       timeout = null;
+  //       if (!immediate) func.apply(context, args);
+  //     };
+  //     var callNow = immediate && !timeout;
+  //     clearTimeout(timeout);
+  //     timeout = setTimeout(later, wait);
+  //     if (callNow) func.apply(context, args);
+  //   };
+  // }
   return (
     <div>
       <Topbar ref={topBar} />

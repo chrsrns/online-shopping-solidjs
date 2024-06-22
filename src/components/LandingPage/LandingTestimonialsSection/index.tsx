@@ -4,6 +4,7 @@ import KeenSlider, { KeenSliderInstance, KeenSliderPlugin } from "keen-slider";
 import TestimonialKeenSlider from "./TestimonialKeenSlider";
 import TestimonialKeenSlide from "./TestimonialKeenSlide";
 import { ComponentRefProps } from "../../../ComponentRefProps";
+import { createMediaQuery } from "@solid-primitives/media";
 
 const LandingTestimonialsSection = (props: ComponentRefProps) => {
   const slidesData: { header: string; content: string; author: string }[] = [
@@ -150,9 +151,9 @@ const LandingTestimonialsSection = (props: ComponentRefProps) => {
   return (
     <div class="snap-center">
       <section ref={props.ref} class="bg-gray-50 dark:bg-walnut_brown-300">
-        <div class="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
+        <div class="mx-auto max-w-[1340px] py-8 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
           <div class="flex flex-col items-center gap-8 lg:items-start">
-            <div class="max-w-xl text-center lg:text-left rtl:lg:text-right">
+            <div class="max-w-xl px-4 text-center lg:text-left rtl:lg:text-right">
               <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
                 Don't just take our word for it...
               </h2>

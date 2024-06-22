@@ -2,8 +2,12 @@ import { A } from "@solidjs/router";
 import { For } from "solid-js";
 import { ShopItemsPreview } from "./ShopItemsPreview";
 import { ComponentRefProps } from "../../../ComponentRefProps";
+import { createMediaQuery } from "@solid-primitives/media";
 
 const LandingDirectToShop = (props: ComponentRefProps) => {
+  const isSmall = createMediaQuery("(max-width: 640px)");
+  const gridChildCount = () => (isSmall() ? 3 : 5);
+
   return (
     <div class="snap-center">
       <section
@@ -33,7 +37,9 @@ const LandingDirectToShop = (props: ComponentRefProps) => {
             </div>
 
             <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
-              <For each={[...Array(5).keys()]}>{() => ShopItemsPreview()}</For>
+              <For each={[...Array(gridChildCount()).keys()]}>
+                {() => ShopItemsPreview()}
+              </For>
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ const LandingProductsCarousel = (props: ComponentRefProps) => {
     <main class="snap-center">
       <div
         ref={props.ref}
-        class="flex w-full snap-x snap-mandatory items-center gap-8 overflow-x-auto bg-timberwolf-900 px-16 py-8 dark:bg-dim_gray"
+        class="flex w-full snap-x snap-mandatory items-center gap-4 overflow-x-auto bg-timberwolf-900 px-8 py-8 xl:gap-8 xl:px-16 dark:bg-dim_gray"
       >
         <For each={[...Array(10).keys()]}>
           {(item, index) => (

@@ -115,13 +115,13 @@ const LandingAnimationSection = (props: LandingAnimationSectionProps) => {
                 <br class="block sm:hidden" />
                 important space
               </h2>
-              <p class="mx-4 mt-3 text-xl leading-relaxed text-gray-600 md:mt-8 lg:mx-12 dark:text-gray-300">
+              <p class="text-md mx-4 mt-3 leading-relaxed text-gray-600 sm:text-xl md:mt-8 lg:mx-12 dark:text-gray-300">
                 Amet minim mollit non deserunt ullamco est sit aliqua dolor do
                 amet sint. Velit officia consequat duis enim velit mollit.
                 Exercitation veniam consequat sunt nostrud amet.
               </p>
 
-              <p class="mb-8 mt-4 text-center text-xl text-gray-600 md:mt-8 md:text-left dark:text-gray-300">
+              <p class="text-md mb-8 mt-4 text-center text-gray-600 sm:text-xl md:mt-8 md:text-left dark:text-gray-300">
                 <span class="relative inline-block">
                   <span class="absolute bottom-0.5 inline-block h-2 w-full bg-yellow-300 dark:bg-gray-900"></span>
                   <span class="relative">
@@ -159,7 +159,7 @@ const LandingAnimationSection = (props: LandingAnimationSectionProps) => {
                 />
                 <img
                   ref={furn_bed}
-                  class={`absolute ${translate_l_52} top-0 opacity-0 transition duration-1000`}
+                  class={`absolute ${translate_r_52} top-0 opacity-0 transition duration-1000`}
                   src="src/assets/photos-furniture/furn-bed.png"
                   alt=""
                 />
