@@ -11,7 +11,7 @@ import { throttle } from "@solid-primitives/scheduled";
 const LandingPage = () => {
   let topBar!: HTMLDivElement;
 
-  let myContents!: HTMLDivElement;
+  let contentsParent!: HTMLDivElement;
   let landingHero!: HTMLDivElement;
   let landingAnimation!: HTMLDivElement;
   let landingProducts!: HTMLDivElement;
@@ -29,8 +29,8 @@ const LandingPage = () => {
   onMount(() => {
     const calcedHeight = `calc(100vh - ${topBar.clientHeight}px)`;
 
-    myContents.addEventListener("scroll", throttledGetCenteredChild);
-    myContents.style.setProperty("height", calcedHeight);
+    contentsParent.addEventListener("scroll", throttledGetCenteredChild);
+    contentsParent.style.setProperty("height", calcedHeight);
     landingHero.style.setProperty("height", calcedHeight);
     landingAnimation.style.setProperty("height", calcedHeight);
     landingProducts.style.setProperty("height", calcedHeight);
@@ -73,7 +73,7 @@ const LandingPage = () => {
           ) {
             if (cell.id == "animation") {
               setAnimate(true);
-              myContents.removeEventListener(
+              contentsParent.removeEventListener(
                 "scroll",
                 throttledGetCenteredChild,
               );
@@ -102,7 +102,7 @@ const LandingPage = () => {
     <div>
       <Topbar ref={topBar} />
       <div
-        ref={myContents}
+        ref={contentsParent}
         class="flex w-screen flex-shrink-0 snap-y snap-mandatory flex-col overflow-y-auto"
       >
         <LandingHeroSection ref={landingHero} />
