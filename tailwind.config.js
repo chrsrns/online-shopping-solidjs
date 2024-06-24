@@ -3,6 +3,7 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      // Coolors Preview: https://coolors.co/dadad6-3c3934-2a2926-58534e-6d695f
       colors: {
         timberwolf: {
           DEFAULT: "#dadad6",
