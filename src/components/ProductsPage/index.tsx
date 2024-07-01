@@ -2,11 +2,15 @@ import { For } from "solid-js";
 import Topbar from "../Topbar";
 
 const ProductsPage = () => {
+  let topBar!: HTMLDivElement;
+
   return (
-    <div>
-      <Topbar />
-      <h1 class="text-4xl text-center pb-20 pt-10">All Items</h1>
-      <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8 px-16">
+    <div class="dark:bg-walnut_brown-400">
+      <Topbar ref={topBar} />
+      <h1 class="pb-20 pt-10 text-center text-4xl dark:text-white">
+        All Items
+      </h1>
+      <div class="grid grid-cols-1 gap-4 px-16 lg:grid-cols-3 lg:gap-8">
         <For each={[...Array(10).keys()]}>
           {() => (
             <a href="#" class="group relative block overflow-hidden">
