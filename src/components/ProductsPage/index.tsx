@@ -39,17 +39,19 @@ const ProductsPage = () => {
                 class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
               />
 
-              <div class="relative border border-gray-100 bg-white p-6">
+              <div class="relative border border-gray-100 bg-white p-6 dark:bg-black_olive">
                 <span class="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium">
                   {" "}
                   New{" "}
                 </span>
 
-                <h3 class="mt-4 text-lg font-medium text-gray-900">
+                <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white">
                   Robot Toy
                 </h3>
 
-                <p class="mt-1.5 text-sm text-gray-700">$14.99</p>
+                <p class="mt-1.5 text-sm text-gray-700 dark:text-white">
+                  $14.99
+                </p>
 
                 <form class="mt-4">
                   <button class="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105">
