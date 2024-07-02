@@ -66,6 +66,9 @@ const ProductsPage = () => {
           )}
         </For>
       </div>
+      <div class="py-12 text-center text-lg dark:text-timberwolf">
+        End of the list
+      </div>
     </div>
   );
 };
