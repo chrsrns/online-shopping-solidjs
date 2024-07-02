@@ -42,13 +42,13 @@ const ProductsPage = () => {
                 class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
               />
 
-              <div class="relative border border-gray-100 bg-white p-6 dark:bg-black_olive">
-                <span class="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium">
-                  {" "}
-                  New{" "}
-                </span>
+              <div class="relative bg-white p-6 dark:bg-black_olive">
+                {/* <span class="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium"> */}
+                {/*   {" "} */}
+                {/*   New{" "} */}
+                {/* </span> */}
 
-                <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white">
+                <h3 class="text-lg font-medium text-gray-900 dark:text-white">
                   Robot Toy
                 </h3>
 
