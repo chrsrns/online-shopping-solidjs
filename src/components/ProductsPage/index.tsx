@@ -7,13 +7,16 @@ const ProductsPage = () => {
   return (
     <div class="dark:bg-walnut_brown-400">
       <Topbar ref={topBar} />
-      <h1 class="pb-20 pt-10 text-center text-4xl dark:text-white">
+      <h1 class="pb-10 pt-10 text-center text-4xl sm:pb-20 dark:text-white">
         All Items
       </h1>
-      <div class="grid grid-cols-1 gap-4 px-16 lg:grid-cols-3 lg:gap-8">
+      <div class="grid grid-cols-1 gap-4 px-8 sm:grid-cols-2 sm:px-16 md:grid-cols-3 lg:gap-8">
         <For each={[...Array(10).keys()]}>
           {() => (
-            <a href="#" class="group relative block overflow-hidden">
+            <a
+              href="#"
+              class="group relative block overflow-hidden rounded-lg shadow-lg"
+            >
               <button class="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
                 <span class="sr-only">Wishlist</span>
 
