@@ -6,6 +6,7 @@ import App from "./App";
 import LandingPage from "./components/LandingPage";
 import { Route, Router } from "@solidjs/router";
 import ProductsPage from "./components/ProductsPage";
+import AboutPage from "./components/AboutPage";
 
 const root = document.getElementById("root");
 
@@ -20,6 +21,7 @@ render(
     <Router root={App}>
       <Route path="/" component={LandingPage} />
       <Route path="/shop" component={ProductsPage} />
+      <Route path="/about" component={AboutPage} />
     </Router>
   ),
   root!,
