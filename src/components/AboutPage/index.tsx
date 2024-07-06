@@ -9,7 +9,7 @@ const AboutPage = () => {
   let topBar!: HTMLDivElement;
 
   return (
-    <div class="min-h-screen dark:bg-walnut_brown-400 dark:text-gray-100">
+    <div class="min-h-screen overflow-auto dark:bg-walnut_brown-400 dark:text-gray-100">
       <Topbar ref={topBar} />
       <div class="mx-24 my-16 flex flex-col">
         <div class="w-auto">
