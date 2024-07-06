@@ -40,7 +40,7 @@ const AboutPage = () => {
 
         <div class="w-auto">
           <div class="relative -left-24 mb-4 animate-[slide_0.8s_forwards_750ms] opacity-0">
-            <div class="grid grid-cols-1 gap-6 sm:grid-cols-3">
+            <div class="mb-14 grid grid-cols-1 gap-6 sm:grid-cols-3">
               <div class="flex flex-col border border-timberwolf p-4">
                 <div class="max-h-28 w-full px-36 pb-3 sm:px-6">
                   <TbBrandSolidjs class="h-full w-full" />
