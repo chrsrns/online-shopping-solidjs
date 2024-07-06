@@ -1,4 +1,9 @@
 import Topbar from "../Topbar";
+import {
+  TbBrandSolidjs,
+  TbBrandTailwind,
+  TbBrandTypescript,
+} from "solid-icons/tb";
 
 const AboutPage = () => {
   let topBar!: HTMLDivElement;
@@ -35,14 +40,34 @@ const AboutPage = () => {
 
         <div class="w-auto">
           <div class="relative -left-24 mb-4 animate-[slide_0.8s_forwards_750ms] opacity-0">
-            <p class="mb-8 text-lg">
-              - <strong>SolidJS</strong>: A React.js alternative that does NOT
-              use a virtual DOM, which should be more performant.
-              <br />- <strong>TailwindCSS</strong>: For styling and ensuring a
-              modern, responsive design.
-              <br />- <strong>TypeScript</strong>: For type safety and better
-              maintainability of the code.
-            </p>
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-3">
+              <div class="flex flex-col border border-timberwolf p-4">
+                <div class="max-h-28 w-full px-36 pb-3 sm:px-6">
+                  <TbBrandSolidjs class="h-full w-full" />
+                </div>
+                <strong class="mx-auto mb-1 text-lg">SolidJS</strong>
+                <div>
+                  A React.js alternative that does NOT use a virtual DOM, which
+                  should be more performant.
+                </div>
+              </div>
+              <div class="flex flex-col border border-timberwolf p-4">
+                <div class="max-h-28 w-full px-36 pb-3 sm:px-6">
+                  <TbBrandTailwind class="h-full w-full" />
+                </div>
+                <strong class="mx-auto mb-1 text-lg">TailwindCSS</strong>
+                <div>For styling and ensuring a modern, responsive design.</div>
+              </div>
+              <div class="flex flex-col border border-timberwolf p-4">
+                <div class="max-h-28 w-full px-36 pb-3 sm:px-6">
+                  <TbBrandTypescript class="h-full w-full" />
+                </div>
+                <strong class="mx-auto mb-1 text-lg">TypeScript</strong>
+                <div>
+                  For type safety and better maintainability of the code.
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
