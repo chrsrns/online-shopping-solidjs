@@ -13,7 +13,7 @@ const AboutPage = () => {
       <Topbar ref={topBar} />
       <div class="flex flex-col">
         <div class="bg-walnut_brown-800 dark:bg-walnut_brown-500">
-          <div class="relative w-full py-28 before:absolute before:top-0 before:h-full before:w-full before:animate-[infinite-scroll_6s_infinite_linear] before:bg-about-hero-image before:bg-left-top before:bg-repeat before:opacity-20">
+          <div class="relative w-full py-28 before:absolute before:top-0 before:h-full before:w-full before:animate-[infinite-scroll_6s_infinite_linear] before:bg-about-hero-image before:bg-fixed before:bg-left-top before:bg-repeat before:opacity-20">
             <h1 class="relative text-center text-5xl font-bold">About</h1>
           </div>
         </div>
