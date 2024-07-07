@@ -11,6 +11,15 @@ module.exports = {
             opacity: 1,
           },
         },
+        "infinite-scroll": {
+          "100%": {
+            // Hardcoded value based on size of image used
+            "background-position": "left 353px",
+          },
+        },
+      },
+      backgroundImage: {
+        "about-hero-image": "url(src/assets/infini.png)",
       },
       colors: {
         timberwolf: {

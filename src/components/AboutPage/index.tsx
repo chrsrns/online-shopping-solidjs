@@ -12,6 +12,11 @@ const AboutPage = () => {
     <div class="min-h-screen overflow-auto dark:bg-walnut_brown-400 dark:text-gray-100">
       <Topbar ref={topBar} />
       <div class="flex flex-col">
+        <div class="bg-walnut_brown-800 dark:bg-walnut_brown-500">
+          <div class="relative w-full py-28 before:absolute before:top-0 before:h-full before:w-full before:animate-[infinite-scroll_6s_infinite_linear] before:bg-about-hero-image before:bg-left-top before:bg-repeat before:opacity-20">
+            <h1 class="relative text-center text-5xl font-bold">About</h1>
+          </div>
+        </div>
         <div class="px-24 py-16">
           <div class="w-auto">
             <div class="relative -left-24 mb-4 animate-[slide_0.8s_forwards_150ms] opacity-0">
