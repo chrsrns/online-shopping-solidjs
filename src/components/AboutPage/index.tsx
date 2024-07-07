@@ -20,9 +20,9 @@ const AboutPage = () => {
         <div class="px-24 py-16">
           <div class="w-auto">
             <div class="relative -left-24 mb-4 animate-[slide_0.8s_forwards_150ms] opacity-0">
-              <h1 class="text-4xl font-bold dark:text-gray-100">
+              <h2 class="text-4xl font-bold dark:text-gray-100">
                 What is this website?
-              </h1>
+              </h2>
             </div>
           </div>
 
@@ -40,7 +40,7 @@ const AboutPage = () => {
 
           <div class="w-auto">
             <div class="relative -left-24 mb-4 animate-[slide_0.8s_forwards_550ms] opacity-0">
-              <h2 class="mb-4 text-3xl font-semibold">Technologies Used</h2>
+              <h3 class="mb-4 text-3xl font-semibold">Technologies Used</h3>
             </div>
           </div>
 
@@ -81,7 +81,7 @@ const AboutPage = () => {
 
           <div class="w-auto">
             <div class="relative -left-24 mb-4 animate-[slide_0.8s_forwards_950ms] opacity-0">
-              <h2 class="mb-4 text-3xl font-semibold">Focus</h2>
+              <h3 class="mb-4 text-3xl font-semibold">Focus</h3>
             </div>
           </div>
 
