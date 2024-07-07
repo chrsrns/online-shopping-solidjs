@@ -1,11 +1,12 @@
 import { ComponentRefProps } from "../../../ComponentRefProps";
+import HeaderBG from "/src/assets/pexels-photo-271816.jpeg";
 
 const LandingHeroSection = (props: ComponentRefProps) => {
   return (
     <div class="snap-center">
       <div ref={props.ref} class="relative w-full">
         <img
-          src="src/assets/pexels-photo-271816.jpeg"
+          src={HeaderBG}
           alt="Background Image"
           class="h-full w-full object-cover object-center"
         />

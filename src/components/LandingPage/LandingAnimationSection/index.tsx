@@ -1,5 +1,17 @@
 import { createEffect, createSignal } from "solid-js";
 import { ComponentRefProps } from "../../../ComponentRefProps";
+import BlobFloor from "/src/assets/blob-floor1.svg";
+import BlobFurnSpace from "/src/assets/photos-furniture/furn-space.png";
+import BlobFurnChair from "/src/assets/photos-furniture/furn-chair.png";
+import BlobFurnWorktable from "/src/assets/photos-furniture/furn-worktable.png";
+import BlobFurnBed from "/src/assets/photos-furniture/furn-bed.png";
+import BlobFurnMacPc from "/src/assets/photos-furniture/furn-macpc.png";
+import BlobFurnShelfDecor from "/src/assets/photos-furniture/furn-shelfdecor.png";
+import BlobFurnTableLamp from "/src/assets/photos-furniture/furn-tablelamp.png";
+import BlobFurnWallBookshelf from "/src/assets/photos-furniture/furn-wallbookshelf.png";
+import BlobFurnWallPainting from "/src/assets/photos-furniture/furn-wallpainting.png";
+import BlobFurnWallShelf from "/src/assets/photos-furniture/furn-wallshelf.png";
+import BlobFurnWallStickies from "/src/assets/photos-furniture/furn-wallstickies.png";
 
 interface LandingAnimationSectionProps extends ComponentRefProps {
   animate: boolean;
@@ -135,74 +147,70 @@ const LandingAnimationSection = (props: LandingAnimationSectionProps) => {
             <div class="relative">
               <img
                 class="absolute inset-x-0 bottom-0 left-1/2 -translate-x-1/2 md:scale-110"
-                src="src/assets/blob-floor1.svg"
+                src={BlobFloor}
                 alt=""
               />
 
               <div class="relative w-full scale-90 md:scale-100 xl:mx-auto xl:max-w-lg 2xl:origin-bottom 2xl:scale-110">
-                <img
-                  class="relative"
-                  src="src/assets/photos-furniture/furn-space.png"
-                  alt=""
-                />
+                <img class="relative" src={BlobFurnSpace} alt="" />
                 <img
                   ref={furn_chair}
                   class={`absolute ${translate_l_52} top-0 opacity-0 transition duration-1000`}
-                  src="src/assets/photos-furniture/furn-chair.png"
+                  src={BlobFurnChair}
                   alt=""
                 />
                 <img
                   ref={furn_worktable}
                   class={`absolute ${translate_r_52} top-0 opacity-0 transition duration-1000`}
-                  src="src/assets/photos-furniture/furn-worktable.png"
+                  src={BlobFurnWorktable}
                   alt=""
                 />
                 <img
                   ref={furn_bed}
                   class={`absolute ${translate_r_52} top-0 opacity-0 transition duration-1000`}
-                  src="src/assets/photos-furniture/furn-bed.png"
+                  src={BlobFurnBed}
                   alt=""
                 />
                 <img
                   ref={furn_macpc}
                   class={`absolute ${translate_r_52} top-0 opacity-0 transition duration-1000`}
-                  src="src/assets/photos-furniture/furn-macpc.png"
+                  src={BlobFurnMacPc}
                   alt=""
                 />
                 <img
                   ref={furn_shelfdecor}
                   class={`absolute ${translate_l_52} top-0 opacity-0 transition duration-1000`}
-                  src="src/assets/photos-furniture/furn-shelfdecor.png"
+                  src={BlobFurnShelfDecor}
                   alt=""
                 />
                 <img
                   ref={furn_tablelamp}
                   class={`absolute ${translate_r_52} top-0 opacity-0 transition duration-1000`}
-                  src="src/assets/photos-furniture/furn-tablelamp.png"
+                  src={BlobFurnTableLamp}
                   alt=""
                 />
                 <img
                   ref={furn_wallbookshelf}
                   class={`absolute ${translate_l_52} top-0 opacity-0 transition duration-1000`}
-                  src="src/assets/photos-furniture/furn-wallbookshelf.png"
+                  src={BlobFurnWallBookshelf}
                   alt=""
                 />
                 <img
                   ref={furn_wallpainting}
                   class={`absolute ${translate_r_52} top-0 opacity-0 transition duration-1000`}
-                  src="src/assets/photos-furniture/furn-wallpainting.png"
+                  src={BlobFurnWallPainting}
                   alt=""
                 />
                 <img
                   ref={furn_wallshelf}
                   class={`absolute ${translate_l_52} top-0 opacity-0 transition duration-1000`}
-                  src="src/assets/photos-furniture/furn-wallshelf.png"
+                  src={BlobFurnWallShelf}
                   alt=""
                 />
                 <img
                   ref={furn_wallstickies}
                   class={`absolute ${translate_r_52} top-0 opacity-0 transition duration-1000`}
-                  src="src/assets/photos-furniture/furn-wallstickies.png"
+                  src={BlobFurnWallStickies}
                   alt=""
                 />
               </div>

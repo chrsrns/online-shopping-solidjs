@@ -18,7 +18,7 @@ module.exports = {
         },
       },
       backgroundImage: {
-        "about-hero-image": "url(src/assets/infini.png)",
+        "about-hero-image": "url(/src/assets/infini.png)",
       },
       // Coolors Preview: https://coolors.co/dadad6-3c3934-2a2926-58534e-6d695f
       colors: {
