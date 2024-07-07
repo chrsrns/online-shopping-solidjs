@@ -3,10 +3,12 @@ import { render } from "solid-js/web";
 
 import "./index.css";
 import App from "./App";
-import LandingPage from "./components/LandingPage";
 import { Route, Router } from "@solidjs/router";
-import ProductsPage from "./components/ProductsPage";
-import AboutPage from "./components/AboutPage";
+import { lazy } from "solid-js";
+
+const LandingPage = lazy(() => import("./components/LandingPage"));
+const ProductsPage = lazy(() => import("./components/ProductsPage"));
+const AboutPage = lazy(() => import("./components/AboutPage"));
 
 const root = document.getElementById("root");
 
