@@ -9,6 +9,7 @@ import {
   TbShoppingCartPlus,
 } from "solid-icons/tb";
 import { BsGearWideConnected } from "solid-icons/bs";
+import { FaSolidGear } from "solid-icons/fa";
 
 const AboutPage = () => {
   let topBar!: HTMLDivElement;
@@ -27,7 +28,14 @@ const AboutPage = () => {
             </div>
           </div>
         </div>
-        <div class="px-24 py-16">
+        <div class="relative overflow-hidden px-12 py-8 sm:px-24 sm:py-16">
+          {/* { very confusing positioning. there should be a better way for this. } */}
+          <div class="absolute left-0 top-0 aspect-square w-5/6 opacity-5 sm:w-3/6">
+            <FaSolidGear class="absolute -left-1/3 -top-1/3 h-full w-full animate-[spin_8s_linear_infinite]" />
+          </div>
+          <div class="absolute left-full top-[24rem] aspect-square w-[50rem] opacity-5 sm:top-1/2 sm:w-5/6">
+            <FaSolidGear class="-top-5/6 absolute -left-1/2 h-full w-full animate-[spin_16s_linear_infinite] sm:-left-2/3" />
+          </div>
           <div class="w-auto">
             <div class="relative -left-24 mb-4 animate-[slide_0.8s_forwards_150ms] opacity-0">
               <h2 class="text-4xl font-bold dark:text-gray-100">
