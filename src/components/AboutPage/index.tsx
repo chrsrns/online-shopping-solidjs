@@ -29,13 +29,6 @@ const AboutPage = () => {
           </div>
         </div>
         <div class="relative overflow-hidden px-12 py-8 sm:px-24 sm:py-16">
-          {/* { very confusing positioning. there should be a better way for this. } */}
-          <div class="absolute left-0 top-0 aspect-square w-5/6 opacity-5 sm:w-3/6">
-            <FaSolidGear class="absolute -left-1/3 -top-1/3 h-full w-full animate-[spin_8s_linear_infinite]" />
-          </div>
-          <div class="absolute left-full top-[24rem] aspect-square w-[50rem] opacity-5 sm:top-1/2 sm:w-5/6">
-            <FaSolidGear class="-top-5/6 absolute -left-1/2 h-full w-full animate-[spin_16s_linear_infinite] sm:-left-2/3" />
-          </div>
           <div class="w-auto">
             <div class="relative -left-24 mb-4 animate-[slide_0.8s_forwards_150ms] opacity-0">
               <h2 class="text-4xl font-bold dark:text-gray-100">
@@ -44,7 +37,10 @@ const AboutPage = () => {
             </div>
           </div>
 
-          <div class="w-auto">
+          <div class="relative w-auto">
+            <div class="absolute left-0 top-0 aspect-square h-[35rem] opacity-5 sm:h-[28rem]">
+              <FaSolidGear class="absolute -left-1/2 -top-1/2 h-full w-full animate-[spin_8s_linear_infinite]" />
+            </div>
             <div class="relative -left-24 mb-4 animate-[slide_0.8s_forwards_350ms] opacity-0">
               <p class="mb-14 text-lg text-timberwolf-600 dark:text-gray-300">
                 Welcome! This website is a personal project that I wrote to
@@ -62,7 +58,10 @@ const AboutPage = () => {
             </div>
           </div>
 
-          <div class="w-auto">
+          <div class="relative w-auto">
+            <div class="absolute right-0 top-1/2 aspect-square h-[50rem] opacity-5 sm:top-0 sm:h-[40rem]">
+              <FaSolidGear class="absolute -right-1/2 -top-1/2 h-full w-full animate-[spin_16s_linear_infinite_reverse]" />
+            </div>
             <div class="relative -left-24 mb-4 animate-[slide_0.8s_forwards_750ms] opacity-0">
               <div class="mb-14 grid grid-cols-1 gap-6 sm:grid-cols-3">
                 <div class="flex flex-col border border-timberwolf p-4">
@@ -103,7 +102,10 @@ const AboutPage = () => {
             </div>
           </div>
 
-          <div class="w-auto">
+          <div class="relative w-auto">
+            <div class="absolute left-0 top-1/2 aspect-square h-[40rem] opacity-5 sm:h-[50rem]">
+              <FaSolidGear class="absolute -left-1/2 -top-1/2 h-full w-full animate-[spin_8s_linear_infinite]" />
+            </div>
             <div class="relative -left-24 mb-4 animate-[slide_0.8s_forwards_1050ms] opacity-0">
               <div class="mb-14 grid grid-cols-1 gap-6 sm:grid-cols-3">
                 <div class="flex flex-col border border-timberwolf p-4">
