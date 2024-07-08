@@ -15,7 +15,7 @@ const AboutPage = () => {
   let topBar!: HTMLDivElement;
 
   return (
-    <div class="min-h-screen overflow-auto dark:bg-walnut_brown-400 dark:text-gray-100">
+    <div class="min-h-screen overflow-auto bg-timberwolf-900 dark:bg-walnut_brown-400 dark:text-gray-100">
       <Topbar ref={topBar} />
       <div class="flex flex-col">
         <div class="bg-walnut_brown-800 dark:bg-walnut_brown-500"></div>
@@ -37,12 +37,12 @@ const AboutPage = () => {
             </div>
           </div>
 
-          <div class="relative w-auto">
+          <div class="bg- relative w-auto dark:bg-none">
             <div class="absolute left-0 top-0 aspect-square h-[35rem] opacity-5 sm:h-[28rem]">
               <FaSolidGear class="absolute -left-1/2 -top-1/2 h-full w-full animate-[spin_8s_linear_infinite]" />
             </div>
             <div class="relative -left-24 mb-4 animate-[slide_0.8s_forwards_350ms] opacity-0">
-              <p class="mb-14 text-lg text-timberwolf-600 dark:text-gray-300">
+              <p class="mb-14 text-lg text-timberwolf-100 dark:text-gray-300">
                 Welcome! This website is a personal project that I wrote to
                 practice primarily using SolidJS, TailwindCSS, and TypeScript on
                 a project. It's also a practice on creating a somewhat
