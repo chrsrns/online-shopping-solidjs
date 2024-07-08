@@ -16,6 +16,14 @@ module.exports = {
             "background-position": "left 353px",
           },
         },
+        "fadeInTranslucent": {
+          "0%" : {
+            opacity: "0"
+          },
+          "100%" : {
+            opacity: "0.2"
+          }
+        }
       },
       backgroundImage: {
         "about-hero-image": "url(/src/assets/infini.png)",

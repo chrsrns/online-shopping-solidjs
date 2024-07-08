@@ -12,12 +12,13 @@ const AboutPage = () => {
     <div class="min-h-screen overflow-auto dark:bg-walnut_brown-400 dark:text-gray-100">
       <Topbar ref={topBar} />
       <div class="flex flex-col">
-        <div class="bg-walnut_brown-800 dark:bg-walnut_brown-500">
-          <div class="relative flex w-full py-28 before:absolute before:top-0 before:h-full before:w-full before:animate-[infinite-scroll_6s_infinite_linear] before:bg-about-hero-image before:bg-fixed before:bg-left-top before:bg-repeat before:opacity-20">
-            <div class="mx-auto overflow-hidden">
-              <div class="relative -left-24 mb-4 animate-[slide_0.8s_forwards_150ms]">
-                <h1 class="text-center text-5xl font-bold">About</h1>
-              </div>
+        <div class="bg-walnut_brown-800 dark:bg-walnut_brown-500"></div>
+        <div
+          class={`relative flex w-full py-28 before:absolute before:top-0 before:h-full before:w-full before:animate-[infinite-scroll_6s_infinite_linear,fadeInTranslucent_1s_ease-out] before:bg-about-hero-image before:bg-fixed before:bg-left-top before:bg-repeat before:opacity-20 before:duration-1000`}
+        >
+          <div class="mx-auto overflow-hidden">
+            <div class="relative -left-24 mb-4 animate-[slide_0.8s_forwards_150ms]">
+              <h1 class="text-center text-5xl font-bold">About</h1>
             </div>
           </div>
         </div>
