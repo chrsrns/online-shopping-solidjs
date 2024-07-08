@@ -3,7 +3,12 @@ import {
   TbBrandSolidjs,
   TbBrandTailwind,
   TbBrandTypescript,
+  TbDeviceMobileHeart,
+  TbFilterPlus,
+  TbShoppingBag,
+  TbShoppingCartPlus,
 } from "solid-icons/tb";
+import { BsGearWideConnected } from "solid-icons/bs";
 
 const AboutPage = () => {
   let topBar!: HTMLDivElement;
@@ -92,21 +97,64 @@ const AboutPage = () => {
 
           <div class="w-auto">
             <div class="relative -left-24 mb-4 animate-[slide_0.8s_forwards_1050ms] opacity-0">
-              <p class="mb-8 text-lg">
-                - <strong>Responsive Design</strong>: The website is fully
-                responsive and looks great on all devices.
-                <br />- <strong>Semi-Functional</strong>: The website allows
-                visitors to create demo products and actually see those products
-                on the listing.
-                <br />- <strong>Product Listing Features</strong>: The website
-                provides filtering features on the shop to make finding products
-                easy.
-                <br />- <strong>Shopping Cart</strong>: The website provides a
-                virtual shopping cart to show the selected items for checkout.
-                <br />- <strong>Checkout Process</strong>: The website has a
-                basic checkout process to simulate real-world e-commerce
-                functionality.
-              </p>
+              <div class="mb-14 grid grid-cols-1 gap-6 sm:grid-cols-3">
+                <div class="flex flex-col border border-timberwolf p-4">
+                  <div class="max-h-28 w-full px-36 pb-3 sm:px-6">
+                    <TbDeviceMobileHeart class="h-full w-full" />
+                  </div>
+                  <strong class="mx-auto mb-1 text-lg">
+                    Responsive Design
+                  </strong>
+                  <div>
+                    The website is fully responsive and looks great on all
+                    devices.
+                  </div>
+                </div>
+                <div class="flex flex-col border border-timberwolf p-4">
+                  <div class="max-h-28 w-full px-36 pb-3 sm:px-6">
+                    <BsGearWideConnected class="h-full w-full" />
+                  </div>
+                  <strong class="mx-auto mb-1 text-lg">Functional</strong>
+                  <div>
+                    The website allows visitors to create demo products and
+                    actually see those products on the listing.
+                  </div>
+                </div>
+                <div class="flex flex-col border border-timberwolf p-4">
+                  <div class="max-h-28 w-full px-36 pb-3 sm:px-6">
+                    <TbFilterPlus class="h-full w-full" />
+                  </div>
+                  <strong class="mx-auto mb-1 text-lg">
+                    Product Listing Features
+                  </strong>
+                  <div>
+                    The website provides filtering features on the shop to make
+                    finding products easy.
+                  </div>
+                </div>
+
+                <div class="flex flex-col border border-timberwolf p-4">
+                  <div class="max-h-28 w-full px-36 pb-3 sm:px-6">
+                    <TbShoppingCartPlus class="h-full w-full" />
+                  </div>
+                  <strong class="mx-auto mb-1 text-lg">Shopping Cart</strong>
+                  <div>
+                    The website provides a virtual shopping cart to show the
+                    selected items for checkout.
+                  </div>
+                </div>
+
+                <div class="flex flex-col border border-timberwolf p-4">
+                  <div class="max-h-28 w-full px-36 pb-3 sm:px-6">
+                    <TbShoppingBag class="h-full w-full" />
+                  </div>
+                  <strong class="mx-auto mb-1 text-lg">Checkout Process</strong>
+                  <div>
+                    The website has a basic checkout process to simulate
+                    real-world e-commerce functionality.
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
