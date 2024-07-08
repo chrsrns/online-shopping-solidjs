@@ -66,7 +66,7 @@ const AboutPage = () => {
             <div class="relative -left-24 mb-4 animate-[slide_0.8s_forwards_750ms] opacity-0">
               <div class="mb-14 grid grid-cols-1 gap-6 sm:grid-cols-3">
                 <div class="flex flex-col border border-timberwolf p-4">
-                  <div class="max-h-28 w-full px-36 pb-3 sm:px-6">
+                  <div class="max-h-28 w-full pb-3 sm:px-6">
                     <TbBrandSolidjs class="h-full w-full" />
                   </div>
                   <strong class="mx-auto mb-1 text-lg">SolidJS</strong>
@@ -76,7 +76,7 @@ const AboutPage = () => {
                   </div>
                 </div>
                 <div class="flex flex-col border border-timberwolf p-4">
-                  <div class="max-h-28 w-full px-36 pb-3 sm:px-6">
+                  <div class="max-h-28 w-full pb-3 sm:px-6">
                     <TbBrandTailwind class="h-full w-full" />
                   </div>
                   <strong class="mx-auto mb-1 text-lg">TailwindCSS</strong>
@@ -85,7 +85,7 @@ const AboutPage = () => {
                   </div>
                 </div>
                 <div class="flex flex-col border border-timberwolf p-4">
-                  <div class="max-h-28 w-full px-36 pb-3 sm:px-6">
+                  <div class="max-h-28 w-full pb-3 sm:px-6">
                     <TbBrandTypescript class="h-full w-full" />
                   </div>
                   <strong class="mx-auto mb-1 text-lg">TypeScript</strong>
@@ -107,7 +107,7 @@ const AboutPage = () => {
             <div class="relative -left-24 mb-4 animate-[slide_0.8s_forwards_1050ms] opacity-0">
               <div class="mb-14 grid grid-cols-1 gap-6 sm:grid-cols-3">
                 <div class="flex flex-col border border-timberwolf p-4">
-                  <div class="max-h-28 w-full px-36 pb-3 sm:px-6">
+                  <div class="max-h-28 w-full pb-3 sm:px-6">
                     <TbDeviceMobileHeart class="h-full w-full" />
                   </div>
                   <strong class="mx-auto mb-1 text-lg">
@@ -119,7 +119,7 @@ const AboutPage = () => {
                   </div>
                 </div>
                 <div class="flex flex-col border border-timberwolf p-4">
-                  <div class="max-h-28 w-full px-36 pb-3 sm:px-6">
+                  <div class="max-h-28 w-full pb-3 sm:px-6">
                     <BsGearWideConnected class="h-full w-full" />
                   </div>
                   <strong class="mx-auto mb-1 text-lg">Functional</strong>
@@ -129,7 +129,7 @@ const AboutPage = () => {
                   </div>
                 </div>
                 <div class="flex flex-col border border-timberwolf p-4">
-                  <div class="max-h-28 w-full px-36 pb-3 sm:px-6">
+                  <div class="max-h-28 w-full pb-3 sm:px-6">
                     <TbFilterPlus class="h-full w-full" />
                   </div>
                   <strong class="mx-auto mb-1 text-lg">
@@ -142,7 +142,7 @@ const AboutPage = () => {
                 </div>
 
                 <div class="flex flex-col border border-timberwolf p-4">
-                  <div class="max-h-28 w-full px-36 pb-3 sm:px-6">
+                  <div class="max-h-28 w-full pb-3 sm:px-6">
                     <TbShoppingCartPlus class="h-full w-full" />
                   </div>
                   <strong class="mx-auto mb-1 text-lg">Shopping Cart</strong>
@@ -153,7 +153,7 @@ const AboutPage = () => {
                 </div>
 
                 <div class="flex flex-col border border-timberwolf p-4">
-                  <div class="max-h-28 w-full px-36 pb-3 sm:px-6">
+                  <div class="max-h-28 w-full pb-3 sm:px-6">
                     <TbShoppingBag class="h-full w-full" />
                   </div>
                   <strong class="mx-auto mb-1 text-lg">Checkout Process</strong>
