@@ -18,7 +18,7 @@ jobs:
         run: npm i --legacy-peer-deps
 
       - name: build
-        run: npx vite build --base=/online-shopping-solidjs/
+        run: npx vite build --base=online-shopping-solidjs
 
       - name: deploy pages
         uses: JamesIves/github-pages-deploy-action@v4.5.0
