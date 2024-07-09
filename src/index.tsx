@@ -18,13 +18,13 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   );
 }
 
-render(
-  () => (
+render(() => {
+  console.log("Initializing root component...");
+  return (
     <Router root={App}>
       <Route path="/" component={LandingPage} />
       <Route path="/shop" component={ProductsPage} />
       <Route path="/about" component={AboutPage} />
     </Router>
-  ),
-  root!,
-);
+  );
+}, root!);
