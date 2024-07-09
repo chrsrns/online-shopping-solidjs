@@ -9,6 +9,7 @@ import { createMediaQuery } from "@solid-primitives/media";
 import { throttle } from "@solid-primitives/scheduled";
 
 const LandingPage = () => {
+  console.log("Initializing landing page...");
   let topBar!: HTMLDivElement;
 
   let contentsParent!: HTMLDivElement;
