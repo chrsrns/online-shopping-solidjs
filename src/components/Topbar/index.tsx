@@ -34,13 +34,13 @@ const Topbar = (props: ComponentRefProps) => {
               </li>
 
               <li>
-                <a
+                <A
                   class="text-base text-gray-500 transition hover:text-gray-500/75 dark:text-gray-200 dark:hover:text-gray-200/75"
                   href="/about"
                 >
                   {" "}
                   About{" "}
-                </a>
+                </A>
               </li>
 
               <li>
