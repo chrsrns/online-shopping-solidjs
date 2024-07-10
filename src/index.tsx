@@ -21,7 +21,7 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 render(() => {
   console.log("Initializing root component...");
   return (
-    <Router base="/online-shopping-solidjs/" root={App}>
+    <Router base="/online-shopping-solidjs" root={App}>
       <Route path="/" component={LandingPage} />
       <Route path="/shop" component={ProductsPage} />
       <Route path="/about" component={AboutPage} />
