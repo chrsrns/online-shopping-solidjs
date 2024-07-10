@@ -29,6 +29,9 @@ jobs:
       - name: Build
         run: npx vite build --base=online-shopping-solidjs
 
+      - name: Copy custom 404 page
+        run: wget --directory-prefix dist https://raw.githubusercontent.com/rafgraph/spa-github-pages/gh-pages/404.html
+
       - name: Deploy to Github Pages
         uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
