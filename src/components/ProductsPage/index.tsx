@@ -63,7 +63,10 @@ const ProductsPage = () => {
                     </h3>
 
                     <p class="mt-1.5 text-sm text-gray-700 dark:text-white">
-                      {item.price}
+                      {Number(item.price).toLocaleString("en", {
+                        style: "currency",
+                        currency: "PHP",
+                      })}
                     </p>
 
                     <form class="mt-4">
