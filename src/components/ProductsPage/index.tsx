@@ -1,16 +1,40 @@
-import { For, Match, Switch, createEffect, createResource } from "solid-js";
+import {
+  For,
+  Match,
+  Show,
+  Switch,
+  createEffect,
+  createResource,
+  createSignal,
+} from "solid-js";
 import Topbar from "../Topbar";
+import ProductItemModal from "../ProductItemModal";
 
 const fetchShopItems = async () => {
-  const response = await fetch("/api/shopitems");
+  const response = await fetch("http://127.0.0.1:8000/api/shopitems");
   return response.json();
 };
 const ProductsPage = () => {
   let topBar!: HTMLDivElement;
   const [shopItems] = createResource(fetchShopItems);
+  const [showModal, setShowModal] = createSignal(false);
+
+  createEffect(() => {
+    if (shopItems()) {
+      console.log("Data: ");
+      console.log(shopItems());
+    }
+  });
+
+  const hideModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <div class="dark:bg-walnut_brown-400">
+      <Show when={showModal()}>
+        <ProductItemModal setShow={setShowModal}></ProductItemModal>
+      </Show>
       <Topbar ref={topBar} />
       <h1 class="pb-10 pt-10 text-center text-4xl sm:pb-20 dark:text-white">
         All Items
@@ -26,6 +50,10 @@ const ProductsPage = () => {
                 <a
                   href="#"
                   class="group relative block overflow-hidden rounded-lg shadow-lg"
+                  onClick={() => {
+                    console.log("clicked");
+                    setShowModal(true);
+                  }}
                 >
                   <button class="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
                     <span class="sr-only">Wishlist</span>
