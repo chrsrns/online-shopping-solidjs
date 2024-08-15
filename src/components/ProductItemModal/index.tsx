@@ -1,7 +1,10 @@
-import { Setter } from "solid-js";
+import { Setter, Show, onMount } from "solid-js";
+import { ProductItem } from "../ProductsPage/ProductItem";
+import { Option, match } from "oxide.ts";
 
 interface ProductItemModalProps {
   setShow: Setter<boolean>;
+  productItem: Option<ProductItem>;
 }
 const ProductItemModal = (props: ProductItemModalProps) => {
   return (
@@ -18,9 +21,35 @@ const ProductItemModal = (props: ProductItemModalProps) => {
 
       <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
         <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-          <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-            <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-              <div class="sm:flex sm:items-start">Item</div>
+          <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg dark:bg-walnut_brown-400">
+            <div class="sm:flex sm:items-start">
+              {match(props.productItem, {
+                Some: (productItem) => {
+                  return (
+                    <div class="w-full">
+                      <img
+                        src={productItem.img_link}
+                        alt=""
+                        class="mb-4 h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
+                      />
+                      <div class="px-6 sm:pb-4">
+                        <h3 class="text-lg font-medium text-gray-900 dark:text-white">
+                          {productItem.iname}
+                        </h3>
+                        <p class="mt-1.5 text-xl font-bold text-gray-700 dark:text-white">
+                          {Number(productItem.price).toLocaleString("en", {
+                            style: "currency",
+                            currency: "PHP",
+                          })}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                },
+                None: () => {
+                  return <div>Error</div>;
+                },
+              })}
             </div>
             <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 dark:bg-black_olive">
               <button

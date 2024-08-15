@@ -21,6 +21,7 @@ const ProductsPage = () => {
   let topBar!: HTMLDivElement;
   const [shopItems] = createResource(fetchShopItems);
   const [showModal, setShowModal] = createSignal(false);
+  const [productItem, setProductItem] = createSignal<ProductItem>();
 
   createEffect(() => {
     if (shopItems()) {
@@ -29,14 +30,15 @@ const ProductsPage = () => {
     }
   });
 
-  const hideModal = () => {
-    setShowModal(false);
-  };
-
   return (
     <div class="dark:bg-walnut_brown-400">
       <Show when={showModal()}>
-        <ProductItemModal setShow={setShowModal}></ProductItemModal>
+        <ProductItemModal
+          setShow={setShowModal}
+          productItem={
+            productItem() ? Some(productItem() as ProductItem) : None
+          }
+        ></ProductItemModal>
       </Show>
       <Topbar ref={topBar} />
       <h1 class="pb-10 pt-10 text-center text-4xl sm:pb-20 dark:text-white">
@@ -58,7 +60,7 @@ const ProductsPage = () => {
                         href="#"
                         class="group relative block overflow-hidden rounded-lg shadow-lg"
                         onClick={() => {
-                          console.log("clicked");
+                          setProductItem(productItem);
                           setShowModal(true);
                         }}
                       >
