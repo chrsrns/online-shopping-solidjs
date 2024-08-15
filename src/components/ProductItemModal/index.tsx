@@ -6,7 +6,7 @@ interface ProductItemModalProps {
 const ProductItemModal = (props: ProductItemModalProps) => {
   return (
     <div
-      class="relative z-10"
+      class="relative z-20"
       aria-labelledby="modal-title"
       role="dialog"
       aria-modal="true"
@@ -22,7 +22,7 @@ const ProductItemModal = (props: ProductItemModalProps) => {
             <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
               <div class="sm:flex sm:items-start">Item</div>
             </div>
-            <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+            <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 dark:bg-black_olive">
               <button
                 type="button"
                 class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
