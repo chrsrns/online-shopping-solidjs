@@ -1,12 +1,19 @@
-import { Setter, Show, onMount } from "solid-js";
+import { For, Setter, Show, createResource } from "solid-js";
 import { ProductItem } from "../ProductsPage/ProductItem";
-import { Option, match } from "oxide.ts";
 
 interface ProductItemModalProps {
   setShow: Setter<boolean>;
   productItem: ProductItem;
 }
+const fetchShopItemDesc = async (id: number) => {
+  const response = await fetch(`http://127.0.0.1:8000/api/shopitemdescs/${id}`);
+  return response.json();
+};
 const ProductItemModal = (props: ProductItemModalProps) => {
+  const [descsFetched] = createResource(
+    props.productItem.id,
+    fetchShopItemDesc,
+  );
   return (
     <div
       class="relative z-20"
@@ -20,7 +27,7 @@ const ProductItemModal = (props: ProductItemModalProps) => {
       ></div>
 
       <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+        <div class="flex min-h-full items-center justify-center p-4 text-center sm:items-center sm:p-0">
           <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg dark:bg-walnut_brown-400">
             <div class="sm:flex sm:items-start">
               <div class="w-full">
@@ -33,12 +40,21 @@ const ProductItemModal = (props: ProductItemModalProps) => {
                   <h3 class="text-lg font-medium text-gray-900 dark:text-white">
                     {props.productItem.iname}
                   </h3>
-                  <p class="mt-1.5 text-xl font-bold text-gray-700 dark:text-white">
+                  <p class="mb-5 mt-1.5 text-xl font-bold text-gray-700 dark:text-white">
                     {Number(props.productItem.price).toLocaleString("en", {
                       style: "currency",
                       currency: "PHP",
                     })}
                   </p>
+                  <For each={descsFetched()}>
+                    {(item) => {
+                      return (
+                        <Show when={typeof item.content === "string"}>
+                          <p class="mb-1.5 dark:text-white">{item.content}</p>
+                        </Show>
+                      );
+                    }}
+                  </For>
                 </div>
               </div>
             </div>
