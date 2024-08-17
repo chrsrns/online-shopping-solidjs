@@ -24,6 +24,18 @@ module.exports = {
             opacity: "0.2",
           },
         },
+        fadeIn: {
+          "0%": {
+            opacity: 0,
+          },
+          "100%": {
+            opacity: 1,
+          },
+        },
+      },
+      animation: {
+        fade_in: "fadeIn 0.25s ease-in",
+        fade_in_loading: "fadeIn 0.25s ease-in, spin 1s linear infinite",
       },
       backgroundImage: {
         "about-hero-image": "url(/src/assets/infini.png)",
