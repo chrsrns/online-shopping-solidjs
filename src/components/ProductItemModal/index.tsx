@@ -1,5 +1,6 @@
-import { For, Setter, Show, createResource } from "solid-js";
+import { For, Match, Setter, Show, Switch, createResource } from "solid-js";
 import { ProductItem } from "../ProductsPage/ProductItem";
+import { FaSolidSpinner } from "solid-icons/fa";
 
 interface ProductItemModalProps {
   setShow: Setter<boolean>;
@@ -46,19 +47,38 @@ const ProductItemModal = (props: ProductItemModalProps) => {
                       currency: "PHP",
                     })}
                   </p>
-                  <For each={descsFetched()}>
-                    {(item) => {
-                      return (
-                        <Show when={typeof item.content === "string"}>
-                          <p class="mb-1.5 dark:text-white">{item.content}</p>
-                        </Show>
-                      );
-                    }}
-                  </For>
+                  <Switch>
+                    <Match when={descsFetched.loading}>
+                      <div class="flex w-full justify-center pb-6 dark:text-white">
+                        <FaSolidSpinner class="animate-fade_in_loading text-lg" />
+                      </div>
+                    </Match>
+                    <Match when={descsFetched.error}>
+                      <div class="flex w-full justify-center pb-6 dark:text-white">
+                        <span>Network error. Please try again.</span>
+                      </div>
+                    </Match>
+                    <Match when={descsFetched()}>
+                      <For each={descsFetched()}>
+                        {(item) => {
+                          return (
+                            <Show when={typeof item.content === "string"}>
+                              <p class="mb-1.5 dark:text-white">
+                                {item.content}
+                              </p>
+                            </Show>
+                          );
+                        }}
+                      </For>
+                    </Match>
+                  </Switch>
                 </div>
               </div>
             </div>
-            <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 dark:bg-black_olive">
+            <div class="bg-gray-50 px-4 py-3 sm:flex sm:gap-4 sm:px-6 dark:bg-black_olive">
+              <button class="block w-full rounded bg-yellow-400 p-2 text-sm font-medium transition hover:scale-105">
+                Add to Cart
+              </button>
               <button
                 type="button"
                 class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
