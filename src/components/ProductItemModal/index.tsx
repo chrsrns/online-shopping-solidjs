@@ -15,6 +15,8 @@ const ProductItemModal = (props: ProductItemModalProps) => {
     props.productItem.id,
     fetchShopItemDesc,
   );
+
+  // TODO: Trigger close action on mobile back action
   return (
     <div
       class="relative z-20"
