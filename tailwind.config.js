@@ -36,6 +36,7 @@ module.exports = {
       animation: {
         fade_in: "fadeIn 0.25s ease-in",
         fade_in_loading: "fadeIn 0.25s ease-in, spin 1s linear infinite",
+        fade_in_slow_loading: "fadeIn 0.35s ease-in, spin 1s linear infinite",
       },
       backgroundImage: {
         "about-hero-image": "url(/src/assets/infini.png)",

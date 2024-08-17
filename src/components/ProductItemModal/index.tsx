@@ -53,7 +53,7 @@ const ProductItemModal = (props: ProductItemModalProps) => {
                   <Switch>
                     <Match when={descsFetched.loading}>
                       <div class="flex w-full justify-center pb-6 dark:text-white">
-                        <FaSolidSpinner class="animate-fade_in_loading text-lg" />
+                        <FaSolidSpinner class="animate-fade_in_slow_loading text-lg" />
                       </div>
                     </Match>
                     <Match when={descsFetched.error}>
