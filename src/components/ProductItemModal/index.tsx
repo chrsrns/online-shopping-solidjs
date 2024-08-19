@@ -10,10 +10,20 @@ const fetchShopItemDesc = async (id: number) => {
   const response = await fetch(`http://127.0.0.1:8000/api/shopitemdescs/${id}`);
   return response.json();
 };
+const fetchShopItemImgs = async (id: number) => {
+  const response = await fetch(
+    `http://127.0.0.1:8000/api/shopitemimages/${id}`,
+  );
+  return response.json();
+};
 const ProductItemModal = (props: ProductItemModalProps) => {
   const [descsFetched] = createResource(
     props.productItem.id,
     fetchShopItemDesc,
+  );
+  const [imagesFetched] = createResource(
+    props.productItem.id,
+    fetchShopItemImgs,
   );
 
   // TODO: Trigger close action on mobile back action
@@ -75,6 +85,29 @@ const ProductItemModal = (props: ProductItemModalProps) => {
                           );
                         }}
                       </For>
+                    </Match>
+                  </Switch>
+                  <Switch>
+                    <Match when={imagesFetched.loading}>
+                      <div class="flex w-full justify-center pb-6 dark:text-white">
+                        <FaSolidSpinner class="animate-fade_in_slow_loading text-lg" />
+                      </div>
+                    </Match>
+                    <Match when={imagesFetched.error}>
+                      <div class="flex w-full justify-center pb-6 dark:text-white">
+                        <span>Network error. Please try again.</span>
+                      </div>
+                    </Match>
+                    <Match when={imagesFetched()}>
+                      <div class="mt-3 flex h-48 snap-x snap-mandatory flex-row gap-3 overflow-x-scroll">
+                        <For each={imagesFetched()}>
+                          {(item) => {
+                            return (
+                              <img class="snap-center" src={item.img_link} />
+                            );
+                          }}
+                        </For>
+                      </div>
                     </Match>
                   </Switch>
                 </div>
