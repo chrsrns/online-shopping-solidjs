@@ -11,12 +11,14 @@ import {
   createSignal,
 } from "solid-js";
 import { CartItemEntry } from "./CartItemEntry";
+import { ProductItem } from "../ProductsPage/ProductItem";
 
 interface CartOffcanvasProps {
   isShow: boolean;
   setShow: Setter<boolean>;
   itemsOnCart: CartItemEntry[];
   onItemDelete: (item: CartItemEntry) => void;
+  onItemSearch: (item: ProductItem) => void;
 }
 const CartOffcanvas = (props: CartOffcanvasProps) => {
   // TODO: Themeing
@@ -136,7 +138,12 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
                                 class="flex h-0 w-full origin-bottom transform flex-col-reverse overflow-clip bg-jet-500 transition-all"
                               >
                                 <div class="flex w-full flex-row">
-                                  <div class="flex h-full flex-grow flex-col-reverse items-center !p-3 text-white">
+                                  <div
+                                    class="flex h-full flex-grow flex-col-reverse items-center !p-3 text-white"
+                                    onClick={() => {
+                                      if (item) props.onItemSearch(item[0]);
+                                    }}
+                                  >
                                     <TbSearch />
                                   </div>
                                   <div

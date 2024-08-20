@@ -89,6 +89,11 @@ const ProductsPage = () => {
             }
           }
         }}
+        onItemSearch={(item) => {
+          setProductItem(item);
+          setShowOffCanvas(false);
+          setShowModal(true);
+        }}
       />
       <div class="grid grid-cols-1 gap-4 px-8 sm:grid-cols-2 sm:px-16 md:grid-cols-3 lg:gap-8">
         <Switch>
