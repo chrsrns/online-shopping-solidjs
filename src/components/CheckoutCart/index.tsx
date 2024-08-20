@@ -1,5 +1,6 @@
 import { TbSearch } from "solid-icons/tb";
 import { RiSystemDeleteBin2Fill } from "solid-icons/ri";
+import { ImCross } from "solid-icons/im";
 import { For, Setter } from "solid-js";
 import { CartItemEntry } from "./CartItemEntry";
 
@@ -34,9 +35,18 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
           >
             <div class="sm:flex sm:items-start">
               <div class="inline-block w-full overflow-visible p-6 pt-10 sm:p-8">
-                <h1 class="mb-5 inline-block text-2xl font-bold text-gray-700 dark:text-white">
-                  Your Checkout Cart
-                </h1>
+                <div class="flex flex-row items-baseline">
+                  <h1 class="mb-5 inline-block flex-grow text-2xl font-bold text-gray-700 dark:text-white">
+                    Your Checkout Cart
+                  </h1>
+                  <button
+                    onClick={() => {
+                      props.setShow(false);
+                    }}
+                  >
+                    <ImCross class="dark:text-white" />
+                  </button>
+                </div>
                 <hr class="mb-5" />
                 <For each={props.itemsOnCart}>
                   {(item) => {
