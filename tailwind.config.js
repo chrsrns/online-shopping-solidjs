@@ -3,6 +3,9 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      transitionProperty: {
+        offcanvas: "opacity, visibility",
+      },
       keyframes: {
         slide: {
           "100%": {

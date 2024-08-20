@@ -1,11 +1,15 @@
 import { TbSearch } from "solid-icons/tb";
 import { RiSystemDeleteBin2Fill } from "solid-icons/ri";
 import { For, Setter } from "solid-js";
+import { CartItemEntry } from "./CartItemEntry";
 
 interface CartOffcanvasProps {
+  isShow: boolean;
   setShow: Setter<boolean>;
+  itemsOnCart: CartItemEntry[];
 }
 const CartOffcanvas = (props: CartOffcanvasProps) => {
+  // TODO: Themeing
   return (
     <div
       class="relative z-20"
@@ -30,14 +34,16 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
                   Your Checkout Cart
                 </h1>
                 <hr class="mb-5" />
-                <For each={[1, 2, 3, 4]}>
+                <For each={props.itemsOnCart}>
                   {(item) => {
+                    let shopItem = item[0];
+                    let amount = item[1];
                     let buttonsRef!: HTMLDivElement;
                     let isButtonsExpanded = false;
                     return (
                       <div class="mb-3 flex flex-col overflow-hidden rounded-lg bg-black_olive-500 shadow">
                         <div
-                          class="flex flex-row items-center"
+                          class="flex flex-row"
                           onClick={() => {
                             if (isButtonsExpanded) {
                               buttonsRef.classList.replace("h-10", "h-0");
@@ -50,20 +56,34 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
                         >
                           <div class="m-2 h-full w-28 overflow-clip rounded-lg sm:m-0 sm:rounded-none xl:w-32">
                             <img
-                              src="https://img.freepik.com/free-photo/high-angle-desk-assortment-with-laptop_23-2149013922.jpg?semt=ais_hybrid"
+                              src={shopItem.img_link}
                               alt=""
                               class="object-contain"
                             />
                           </div>
-                          <div class="flex flex-col py-2 ps-4">
+                          <div class="flex flex-grow flex-col py-2 ps-4">
                             <h2 class="mb-1 inline-block text-base text-gray-700 dark:text-white">
-                              Product Name
+                              {shopItem.iname}
                             </h2>
                             <p class="text-base font-bold text-gray-700 dark:text-white">
-                              {Number(40.99).toLocaleString("en", {
+                              {Number(shopItem.price).toLocaleString("en", {
                                 style: "currency",
                                 currency: "PHP",
                               })}
+                            </p>
+                          </div>
+                          <div class="flex h-full flex-col items-end px-4 py-2">
+                            <h2 class="mb-1 inline-block text-sm text-gray-700 dark:text-white">
+                              {amount}x
+                            </h2>
+                            <p class="text-sm font-bold text-gray-700 dark:text-white">
+                              {Number(shopItem.price * amount).toLocaleString(
+                                "en",
+                                {
+                                  style: "currency",
+                                  currency: "PHP",
+                                },
+                              )}
                             </p>
                           </div>
                         </div>
