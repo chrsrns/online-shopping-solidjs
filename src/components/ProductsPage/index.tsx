@@ -64,7 +64,7 @@ const ProductsPage = () => {
           </button>,
         ]}
       />
-      <h1 class="pb-10 pt-10 text-center text-4xl sm:pb-20 dark:text-white">
+      <h1 class="pb-10 pt-10 text-center text-4xl dark:text-white">
         All Items
       </h1>
       <CartOffcanvas
