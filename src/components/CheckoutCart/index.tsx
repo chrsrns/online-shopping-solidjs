@@ -8,6 +8,7 @@ interface CartOffcanvasProps {
   isShow: boolean;
   setShow: Setter<boolean>;
   itemsOnCart: CartItemEntry[];
+  onItemDelete: (item: CartItemEntry) => void;
 }
 const CartOffcanvas = (props: CartOffcanvasProps) => {
   // TODO: Themeing
@@ -121,6 +122,9 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
                                   </div>
                                   <div
                                     class="flex h-full flex-grow flex-col-reverse items-center bg-red-900 p-3 text-white"
+                                    onClick={() => {
+                                      if (item) props.onItemDelete(item);
+                                    }}
                                   >
                                     <RiSystemDeleteBin2Fill />
                                   </div>
