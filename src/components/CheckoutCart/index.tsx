@@ -57,71 +57,78 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
                   <Match when={props.itemsOnCart.length !== 0}>
                     <For each={props.itemsOnCart}>
                       {(item) => {
-                        let shopItem = item[0];
-                        let amount = item[1];
-                        let buttonsRef!: HTMLDivElement;
-                        let isButtonsExpanded = false;
-                        return (
-                          <div class="mb-3 flex flex-col overflow-hidden rounded-lg bg-black_olive-500 shadow">
-                            <div
-                              class="flex flex-row"
-                              onClick={() => {
-                                if (isButtonsExpanded) {
-                                  buttonsRef.classList.replace("h-10", "h-0");
-                                } else {
-                                  buttonsRef.classList.replace("h-0", "h-10");
-                                }
+                        if (item) {
+                          let shopItem = item[0];
+                          let amount = item[1];
+                          let buttonsRef!: HTMLDivElement;
+                          let isButtonsExpanded = false;
+                          return (
+                            <div class="mb-3 flex flex-col overflow-hidden rounded-lg bg-black_olive-500 shadow">
+                              <div
+                                class="flex flex-row"
+                                onClick={() => {
+                                  if (isButtonsExpanded) {
+                                    buttonsRef.classList.replace("h-10", "h-0");
+                                  } else {
+                                    buttonsRef.classList.replace("h-0", "h-10");
+                                  }
 
-                                isButtonsExpanded = !isButtonsExpanded;
-                              }}
-                            >
-                              <div class="m-2 h-full w-28 overflow-clip rounded-lg sm:m-0 sm:rounded-none xl:w-32">
-                                <img
-                                  src={shopItem.img_link}
-                                  alt=""
-                                  class="object-contain"
-                                />
-                              </div>
-                              <div class="flex flex-grow flex-col py-2 ps-4">
-                                <h2 class="mb-1 inline-block text-base text-gray-700 dark:text-white">
-                                  {shopItem.iname}
-                                </h2>
-                                <p class="text-base font-bold text-gray-700 dark:text-white">
-                                  {Number(shopItem.price).toLocaleString("en", {
-                                    style: "currency",
-                                    currency: "PHP",
-                                  })}
-                                </p>
-                              </div>
-                              <div class="flex h-full flex-col items-end px-4 py-2">
-                                <h2 class="mb-1 inline-block text-sm text-gray-700 dark:text-white">
-                                  {amount}x
-                                </h2>
-                                <p class="text-sm font-bold text-gray-700 dark:text-white">
-                                  {Number(
-                                    shopItem.price * amount,
-                                  ).toLocaleString("en", {
-                                    style: "currency",
-                                    currency: "PHP",
-                                  })}
-                                </p>
-                              </div>
-                            </div>
-                            <div
-                              ref={buttonsRef}
-                              class="flex h-0 w-full origin-bottom transform flex-col-reverse overflow-clip bg-jet-500 transition-all"
-                            >
-                              <div class="flex w-full flex-row">
-                                <div class="flex h-full flex-grow flex-col-reverse items-center !p-3 text-white">
-                                  <TbSearch />
+                                  isButtonsExpanded = !isButtonsExpanded;
+                                }}
+                              >
+                                <div class="m-2 h-full w-28 overflow-clip rounded-lg sm:m-0 sm:rounded-none xl:w-32">
+                                  <img
+                                    src={shopItem.img_link}
+                                    alt=""
+                                    class="object-contain"
+                                  />
                                 </div>
-                                <div class="flex h-full flex-grow flex-col-reverse items-center bg-red-900 p-3 text-white">
-                                  <RiSystemDeleteBin2Fill />
+                                <div class="flex flex-grow flex-col py-2 ps-4">
+                                  <h2 class="mb-1 inline-block text-base text-gray-700 dark:text-white">
+                                    {shopItem.iname}
+                                  </h2>
+                                  <p class="text-base font-bold text-gray-700 dark:text-white">
+                                    {Number(shopItem.price).toLocaleString(
+                                      "en",
+                                      {
+                                        style: "currency",
+                                        currency: "PHP",
+                                      },
+                                    )}
+                                  </p>
+                                </div>
+                                <div class="flex h-full flex-col items-end px-4 py-2">
+                                  <h2 class="mb-1 inline-block text-sm text-gray-700 dark:text-white">
+                                    {amount}x
+                                  </h2>
+                                  <p class="text-sm font-bold text-gray-700 dark:text-white">
+                                    {Number(
+                                      shopItem.price * amount,
+                                    ).toLocaleString("en", {
+                                      style: "currency",
+                                      currency: "PHP",
+                                    })}
+                                  </p>
                                 </div>
                               </div>
+                              <div
+                                ref={buttonsRef}
+                                class="flex h-0 w-full origin-bottom transform flex-col-reverse overflow-clip bg-jet-500 transition-all"
+                              >
+                                <div class="flex w-full flex-row">
+                                  <div class="flex h-full flex-grow flex-col-reverse items-center !p-3 text-white">
+                                    <TbSearch />
+                                  </div>
+                                  <div
+                                    class="flex h-full flex-grow flex-col-reverse items-center bg-red-900 p-3 text-white"
+                                  >
+                                    <RiSystemDeleteBin2Fill />
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                        );
+                          );
+                        }
                       }}
                     </For>
                   </Match>
