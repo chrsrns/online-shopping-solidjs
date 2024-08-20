@@ -48,7 +48,9 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
                     <ImCross class="dark:text-white" />
                   </button>
                 </div>
-                <hr class="mb-5" />
+                <hr
+                  class={props.itemsOnCart.length !== 0 ? "mb-3.5" : "mb-5"}
+                />
                 <Switch>
                   <Match when={props.itemsOnCart.length === 0}>
                     <div class="mt-1.5 text-center dark:text-white">
@@ -56,6 +58,9 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
                     </div>
                   </Match>
                   <Match when={props.itemsOnCart.length !== 0}>
+                    <p class="mb-3.5 text-sm dark:text-white">
+                      Click/tap on the items to show other options.
+                    </p>
                     <For each={props.itemsOnCart}>
                       {(item) => {
                         if (item) {
