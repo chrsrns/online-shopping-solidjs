@@ -12,22 +12,26 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
   // TODO: Themeing
   return (
     <div
-      class="relative z-20"
+      class={`${props.isShow ? "" : ""} relative z-20`}
       aria-labelledby="modal-title"
       role="dialog"
       aria-modal="true"
     >
       <div
-        class="fixed inset-0 animate-fade_in bg-gray-500 bg-opacity-75 transition-opacity"
+        class={`${props.isShow ? "opacity-1 visible" : "invisible opacity-0"} fixed inset-0 bg-gray-500 bg-opacity-75 transition-offcanvas`}
         aria-hidden="true"
         onClick={() => {
-          // props.setShow(false);
+          props.setShow(false);
         }}
       ></div>
 
-      <div class="pointer-events-none fixed inset-0 z-10 w-screen overflow-y-auto">
+      <div
+        class={`${props.isShow ? "opacity-1 visible" : "invisible opacity-0"} pointer-events-none fixed inset-0 z-10 w-screen overflow-y-auto transition-offcanvas`}
+      >
         <div class="relative flex min-h-full flex-row-reverse">
-          <div class="pointer-events-auto relative right-0 w-full transform animate-fade_in_fast overflow-hidden bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:rounded-bl-lg sm:rounded-tl-lg dark:bg-walnut_brown-400">
+          <div
+            class={`${props.isShow ? "right-0" : "-right-full"} pointer-events-auto relative w-full transform overflow-hidden bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:rounded-bl-lg sm:rounded-tl-lg dark:bg-walnut_brown-400`}
+          >
             <div class="sm:flex sm:items-start">
               <div class="inline-block w-full overflow-visible p-6 pt-10 sm:p-8">
                 <h1 class="mb-5 inline-block text-2xl font-bold text-gray-700 dark:text-white">
