@@ -27,7 +27,7 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
       ></div>
 
       <div
-        class={`${props.isShow ? "opacity-1 visible" : "invisible opacity-0"} pointer-events-none fixed inset-0 z-10 w-screen overflow-y-auto transition-offcanvas`}
+        class={`pointer-events-none fixed inset-0 z-10 w-screen overflow-y-auto transition-offcanvas`}
       >
         <div class="relative flex min-h-full flex-row-reverse">
           <div
