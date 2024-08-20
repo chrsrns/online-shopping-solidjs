@@ -1,4 +1,12 @@
-import { For, Match, Setter, Show, Switch, createResource } from "solid-js";
+import {
+  For,
+  Match,
+  Setter,
+  Show,
+  Switch,
+  createEffect,
+  createResource,
+} from "solid-js";
 import { ProductItem } from "../ProductsPage/ProductItem";
 import { FaSolidSpinner } from "solid-icons/fa";
 
@@ -98,7 +106,8 @@ const ProductItemModal = (props: ProductItemModalProps) => {
                         <span>Network error. Please try again.</span>
                       </div>
                     </Match>
-                    <Match when={imagesFetched()}>
+                    {/* TODO: Type Unsafe */}
+                    <Match when={imagesFetched() && imagesFetched().length > 0}>
                       <div class="mt-3 flex h-48 snap-x snap-mandatory flex-row gap-3 overflow-x-scroll">
                         <For each={imagesFetched()}>
                           {(item) => {
