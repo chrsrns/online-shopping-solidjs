@@ -1,7 +1,11 @@
 import { A } from "@solidjs/router";
-import { ComponentRefProps } from "../../ComponentRefProps";
+import { JSXElement, Show } from "solid-js";
 
-const Topbar = (props: ComponentRefProps) => {
+interface TopBarProps {
+  ref: HTMLDivElement;
+  children?: JSXElement[];
+}
+const Topbar = (props: TopBarProps) => {
   return (
     <header ref={props.ref} class="bg-white dark:bg-jet">
       <div class="mx-auto flex h-16 max-w-screen-xl items-center justify-center gap-8 px-4 sm:px-6 md:justify-start lg:px-8">
@@ -20,7 +24,7 @@ const Topbar = (props: ComponentRefProps) => {
           </svg>
         </a>
 
-        <div class="flex items-center">
+        <div class="flex items-center sm:flex-grow">
           <nav aria-label="Global">
             <ul class="flex items-center gap-6 text-sm">
               <li>
@@ -55,25 +59,9 @@ const Topbar = (props: ComponentRefProps) => {
             </ul>
           </nav>
         </div>
-        <div class="flex hidden items-center gap-4">
-          <button class="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75">
-            <span class="sr-only">Toggle menu</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
-        </div>
+        <Show when={props.children}>
+          <div class="flex items-center gap-4">{props.children}</div>
+        </Show>
       </div>
     </header>
   );
