@@ -31,7 +31,7 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
       >
         <div class="relative flex min-h-full flex-row-reverse">
           <div
-            class={`${props.isShow ? "right-0" : "-right-full"} pointer-events-auto relative w-full transform overflow-hidden bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:rounded-bl-lg sm:rounded-tl-lg dark:bg-walnut_brown-400`}
+            class={`${props.isShow ? "translate-x-0" : "translate-x-full"} pointer-events-auto relative w-full transform overflow-hidden bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:rounded-bl-lg sm:rounded-tl-lg dark:bg-walnut_brown-400`}
           >
             <div class="sm:flex sm:items-start">
               <div class="inline-block w-full overflow-visible p-6 pt-10 sm:p-8">
