@@ -9,8 +9,11 @@ import {
 } from "solid-js";
 import Topbar from "../Topbar";
 import ProductItemModal from "../ProductItemModal";
-import { None, Some, match } from "oxide.ts";
+import { match } from "oxide.ts";
 import { ProductItem } from "./ProductItem";
+import CartOffcanvas from "../CheckoutCart";
+import { CartItemEntry } from "../CheckoutCart/CartItemEntry";
+import { FaSolidCartShopping } from "solid-icons/fa";
 
 const fetchShopItems = async () => {
   const response = await fetch("http://127.0.0.1:8000/api/shopitems");
@@ -21,7 +24,9 @@ const ProductsPage = () => {
   let topBar!: HTMLDivElement;
   const [shopItems] = createResource(fetchShopItems);
   const [showModal, setShowModal] = createSignal(false);
+  const [showOffCanvas, setShowOffCanvas] = createSignal(false);
   const [productItem, setProductItem] = createSignal<ProductItem>();
+  const [cartItems, setCartItems] = createSignal<CartItemEntry[]>([]);
 
   createEffect(() => {
     if (shopItems()) {
@@ -39,10 +44,46 @@ const ProductsPage = () => {
           productItem={productItem() as ProductItem}
         ></ProductItemModal>
       </Show>
-      <Topbar ref={topBar} />
+      <Topbar
+        ref={topBar}
+        children={[
+          <button
+            class="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 dark:bg-jet-400 dark:text-white dark:hover:text-neutral-400"
+            onClick={() => {
+              setShowOffCanvas(true);
+            }}
+          >
+            <span class="sr-only">Show Checkout Cart</span>
+            <FaSolidCartShopping />
+          </button>,
+        ]}
+      />
       <h1 class="pb-10 pt-10 text-center text-4xl sm:pb-20 dark:text-white">
         All Items
       </h1>
+      <CartOffcanvas
+        isShow={showOffCanvas()}
+        setShow={setShowOffCanvas}
+        itemsOnCart={cartItems()}
+        onItemDelete={(item) => {
+          let cartItemsCopy = [...cartItems()];
+          for (const cartItemFromCopy of cartItemsCopy) {
+            if (
+              cartItemFromCopy[0].id === item[0].id &&
+              cartItemFromCopy[0].iname === item[0].iname
+            ) {
+              const index = cartItemsCopy.indexOf(cartItemFromCopy);
+              // NOTE: Should not be possible to be false, but placed for good measure.
+              // Consider using a indexed for loop instead.
+              if (index > -1) {
+                cartItemsCopy.splice(index, 1);
+                setCartItems(cartItemsCopy);
+                break;
+              }
+            }
+          }
+        }}
+      />
       <div class="grid grid-cols-1 gap-4 px-8 sm:grid-cols-2 sm:px-16 md:grid-cols-3 lg:gap-8">
         <Switch>
           <Match when={shopItems.error}>
@@ -106,7 +147,34 @@ const ProductsPage = () => {
                           </p>
 
                           <form class="mt-4">
-                            <button class="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105">
+                            <button
+                              class="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105"
+                              onClick={(event) => {
+                                event.stopPropagation();
+                                let isInCart = false;
+                                // NOTE: Needs to ba a structured clone, since the change
+                                // wont propagate to the other components if otherwise
+                                let cartItemsCopy =
+                                  structuredClone(cartItems());
+                                for (const cartItem of cartItemsCopy) {
+                                  if (
+                                    cartItem[0].id === productItem.id &&
+                                    cartItem[0].iname === productItem.iname
+                                  ) {
+                                    isInCart = true;
+                                    cartItem[1]++;
+                                    setCartItems(cartItemsCopy);
+                                    break;
+                                  }
+                                }
+                                if (!isInCart) {
+                                  setCartItems([
+                                    ...cartItems(),
+                                    [productItem, 1],
+                                  ]);
+                                }
+                              }}
+                            >
                               Add to Cart
                             </button>
                           </form>
