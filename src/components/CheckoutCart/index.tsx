@@ -43,13 +43,13 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
       ></div>
 
       <div
-        class={`pointer-events-none fixed inset-0 z-10 w-screen overflow-y-auto transition-offcanvas`}
+        class={`pointer-events-none fixed inset-0 z-10 h-screen w-screen overflow-y-auto transition-offcanvas`}
       >
-        <div class="relative flex min-h-full flex-row-reverse">
+        <div class="relative flex min-h-full flex-col items-end">
           <div
-            class={`${props.isShow ? "translate-x-0" : "translate-x-full"} pointer-events-auto relative w-full transform overflow-hidden bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:rounded-bl-lg sm:rounded-tl-lg dark:bg-walnut_brown-400`}
+            class={`${props.isShow ? "translate-x-0" : "translate-x-full"} pointer-events-auto relative flex w-full flex-[1_1_1px] flex-grow transform overflow-hidden bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:rounded-bl-lg sm:rounded-tl-lg dark:bg-walnut_brown-400`}
           >
-            <div class="flex h-full w-full flex-col overflow-visible p-6 pt-10 sm:p-8">
+            <div class="flex w-full flex-grow flex-col overflow-auto p-6 pt-10 sm:p-8">
               <div class="flex flex-row items-baseline">
                 <h1 class="mb-5 inline-block flex-grow text-2xl font-bold text-gray-700 dark:text-white">
                   Your Checkout Cart
