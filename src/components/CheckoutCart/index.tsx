@@ -5,6 +5,7 @@ import {
   For,
   Match,
   Setter,
+  Show,
   Switch,
   createEffect,
   createSignal,
@@ -158,15 +159,17 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
               </Switch>
             </div>
 
-            <div class="flex bg-walnut_brown-300 p-4 dark:text-white">
-              <div class="flex-grow">Total</div>
-              <div>
-                {Number(totalPrice()).toLocaleString("en", {
-                  style: "currency",
-                  currency: "PHP",
-                })}
+            <Show when={props.itemsOnCart.length > 0}>
+              <div class="flex bg-walnut_brown-300 p-4 dark:text-white">
+                <div class="flex-grow">Total</div>
+                <div>
+                  {Number(totalPrice()).toLocaleString("en", {
+                    style: "currency",
+                    currency: "PHP",
+                  })}
+                </div>
               </div>
-            </div>
+            </Show>
           </div>
         </div>
       </div>
