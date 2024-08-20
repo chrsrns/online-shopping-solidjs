@@ -36,7 +36,9 @@ const ProductsPage = () => {
   });
 
   return (
-    <div class="dark:bg-walnut_brown-400">
+    <div
+      class={`${showModal() || showOffCanvas() ? "overflow-hidden" : "overflow-y-scroll"} h-screen dark:bg-walnut_brown-400`}
+    >
       <Show when={showModal() && productItem()}>
         <ProductItemModal
           setShow={setShowModal}
