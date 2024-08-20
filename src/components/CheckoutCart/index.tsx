@@ -1,7 +1,14 @@
 import { TbSearch } from "solid-icons/tb";
 import { RiSystemDeleteBin2Fill } from "solid-icons/ri";
 import { ImCross } from "solid-icons/im";
-import { For, Match, Setter, Switch } from "solid-js";
+import {
+  For,
+  Match,
+  Setter,
+  Switch,
+  createEffect,
+  createSignal,
+} from "solid-js";
 import { CartItemEntry } from "./CartItemEntry";
 
 interface CartOffcanvasProps {
@@ -12,6 +19,14 @@ interface CartOffcanvasProps {
 }
 const CartOffcanvas = (props: CartOffcanvasProps) => {
   // TODO: Themeing
+  const [totalPrice, setTotalPrice] = createSignal(0);
+  createEffect(() => {
+    let totalPriceTmp = 0;
+    for (const item of props.itemsOnCart) {
+      totalPriceTmp += item[0].price * item[1];
+    }
+    setTotalPrice(totalPriceTmp);
+  });
   return (
     <div
       class={`${props.isShow ? "" : ""} relative z-20`}
@@ -34,30 +49,28 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
           <div
             class={`${props.isShow ? "translate-x-0" : "translate-x-full"} pointer-events-auto relative w-full transform overflow-hidden bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:rounded-bl-lg sm:rounded-tl-lg dark:bg-walnut_brown-400`}
           >
-            <div class="sm:flex sm:items-start">
-              <div class="inline-block w-full overflow-visible p-6 pt-10 sm:p-8">
-                <div class="flex flex-row items-baseline">
-                  <h1 class="mb-5 inline-block flex-grow text-2xl font-bold text-gray-700 dark:text-white">
-                    Your Checkout Cart
-                  </h1>
-                  <button
-                    onClick={() => {
-                      props.setShow(false);
-                    }}
-                  >
-                    <ImCross class="dark:text-white" />
-                  </button>
-                </div>
-                <hr
-                  class={props.itemsOnCart.length !== 0 ? "mb-3.5" : "mb-5"}
-                />
-                <Switch>
-                  <Match when={props.itemsOnCart.length === 0}>
-                    <div class="mt-1.5 text-center dark:text-white">
-                      No items in cart, yet
-                    </div>
-                  </Match>
-                  <Match when={props.itemsOnCart.length !== 0}>
+            <div class="flex h-full w-full flex-col overflow-visible p-6 pt-10 sm:p-8">
+              <div class="flex flex-row items-baseline">
+                <h1 class="mb-5 inline-block flex-grow text-2xl font-bold text-gray-700 dark:text-white">
+                  Your Checkout Cart
+                </h1>
+                <button
+                  onClick={() => {
+                    props.setShow(false);
+                  }}
+                >
+                  <ImCross class="dark:text-white" />
+                </button>
+              </div>
+              <hr class={props.itemsOnCart.length !== 0 ? "mb-3.5" : "mb-5"} />
+              <Switch>
+                <Match when={props.itemsOnCart.length === 0}>
+                  <div class="mt-1.5 text-center dark:text-white">
+                    No items in cart, yet
+                  </div>
+                </Match>
+                <Match when={props.itemsOnCart.length !== 0}>
+                  <div class="flex-grow overflow-y-scroll">
                     <p class="mb-3.5 text-sm dark:text-white">
                       Click/tap on the items to show other options.
                     </p>
@@ -140,9 +153,18 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
                         }
                       }}
                     </For>
-                  </Match>
-                </Switch>
-              </div>
+                  </div>
+                  <div class="flex rounded bg-walnut_brown-300 p-4 dark:text-white">
+                    <div class="flex-grow">Total</div>
+                    <div>
+                      {Number(totalPrice()).toLocaleString("en", {
+                        style: "currency",
+                        currency: "PHP",
+                      })}
+                    </div>
+                  </div>
+                </Match>
+              </Switch>
             </div>
           </div>
         </div>
