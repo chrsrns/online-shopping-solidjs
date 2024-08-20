@@ -13,6 +13,7 @@ import { FaSolidSpinner } from "solid-icons/fa";
 interface ProductItemModalProps {
   setShow: Setter<boolean>;
   productItem: ProductItem;
+  onCheckoutClick: () => void;
 }
 const fetchShopItemDesc = async (id: number) => {
   const response = await fetch(`http://127.0.0.1:8000/api/shopitemdescs/${id}`);
@@ -119,7 +120,10 @@ const ProductItemModal = (props: ProductItemModalProps) => {
               </div>
             </div>
             <div class="bg-gray-50 px-4 py-3 sm:flex sm:gap-4 sm:px-6 dark:bg-black_olive">
-              <button class="block w-full rounded bg-yellow-400 p-2 text-sm font-medium transition hover:scale-105">
+              <button
+                class="block w-full rounded bg-yellow-400 p-2 text-sm font-medium transition hover:scale-105"
+                onClick={() => props.onCheckoutClick()}
+              >
                 Add to Cart
               </button>
               <button

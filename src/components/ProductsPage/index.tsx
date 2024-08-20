@@ -1,6 +1,7 @@
 import {
   For,
   Match,
+  Setter,
   Show,
   Switch,
   createEffect,
@@ -44,6 +45,9 @@ const ProductsPage = () => {
           setShow={setShowModal}
           // casted since the show element already checks for this
           productItem={productItem() as ProductItem}
+          onCheckoutClick={() => {
+            addToCart(cartItems(), productItem() as ProductItem, setCartItems);
+          }}
         ></ProductItemModal>
       </Show>
       <Topbar
@@ -153,28 +157,11 @@ const ProductsPage = () => {
                               class="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105"
                               onClick={(event) => {
                                 event.stopPropagation();
-                                let isInCart = false;
-                                // NOTE: Needs to ba a structured clone, since the change
-                                // wont propagate to the other components if otherwise
-                                let cartItemsCopy =
-                                  structuredClone(cartItems());
-                                for (const cartItem of cartItemsCopy) {
-                                  if (
-                                    cartItem[0].id === productItem.id &&
-                                    cartItem[0].iname === productItem.iname
-                                  ) {
-                                    isInCart = true;
-                                    cartItem[1]++;
-                                    setCartItems(cartItemsCopy);
-                                    break;
-                                  }
-                                }
-                                if (!isInCart) {
-                                  setCartItems([
-                                    ...cartItems(),
-                                    [productItem, 1],
-                                  ]);
-                                }
+                                addToCart(
+                                  cartItems(),
+                                  productItem,
+                                  setCartItems,
+                                );
                               }}
                             >
                               Add to Cart
@@ -200,3 +187,28 @@ const ProductsPage = () => {
   );
 };
 export default ProductsPage;
+
+function addToCart(
+  cartItems: CartItemEntry[],
+  productItem: ProductItem,
+  setCartItems: Setter<CartItemEntry[]>,
+) {
+  let isInCart = false;
+  // NOTE: Needs to ba a structured clone, since the change
+  // wont propagate to the other components if otherwise
+  let cartItemsCopy = structuredClone(cartItems);
+  for (const cartItem of cartItemsCopy) {
+    if (
+      cartItem[0].id === productItem.id &&
+      cartItem[0].iname === productItem.iname
+    ) {
+      isInCart = true;
+      cartItem[1]++;
+      setCartItems(cartItemsCopy);
+      break;
+    }
+  }
+  if (!isInCart) {
+    setCartItems([...cartItems, [productItem, 1]]);
+  }
+}
