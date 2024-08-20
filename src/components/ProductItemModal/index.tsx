@@ -53,73 +53,69 @@ const ProductItemModal = (props: ProductItemModalProps) => {
       <div class="pointer-events-none fixed inset-0 z-10 w-screen overflow-y-auto">
         <div class="flex min-h-full items-center justify-center p-4 text-center sm:items-center sm:p-0">
           <div class="pointer-events-auto relative transform animate-fade_in_fast overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg dark:bg-walnut_brown-400">
-            <div class="sm:flex sm:items-start">
-              <div class="w-full">
-                <img
-                  src={props.productItem.img_link}
-                  alt=""
-                  class="mb-4 h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
-                />
-                <div class="px-6 sm:pb-4">
-                  <h3 class="text-lg font-medium text-gray-900 dark:text-white">
-                    {props.productItem.iname}
-                  </h3>
-                  <p class="mb-5 mt-1.5 text-xl font-bold text-gray-700 dark:text-white">
-                    {Number(props.productItem.price).toLocaleString("en", {
-                      style: "currency",
-                      currency: "PHP",
-                    })}
-                  </p>
-                  <Switch>
-                    <Match when={descsFetched.loading}>
-                      <div class="flex w-full justify-center pb-6 dark:text-white">
-                        <FaSolidSpinner class="animate-fade_in_slow_loading text-lg" />
-                      </div>
-                    </Match>
-                    <Match when={descsFetched.error}>
-                      <div class="flex w-full justify-center pb-6 dark:text-white">
-                        <span>Network error. Please try again.</span>
-                      </div>
-                    </Match>
-                    <Match when={descsFetched()}>
-                      <For each={descsFetched()}>
+            <div class="w-full">
+              <img
+                src={props.productItem.img_link}
+                alt=""
+                class="mb-4 h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
+              />
+              <div class="px-6 sm:pb-4">
+                <h3 class="text-lg font-medium text-gray-900 dark:text-white">
+                  {props.productItem.iname}
+                </h3>
+                <p class="mb-5 mt-1.5 text-xl font-bold text-gray-700 dark:text-white">
+                  {Number(props.productItem.price).toLocaleString("en", {
+                    style: "currency",
+                    currency: "PHP",
+                  })}
+                </p>
+                <Switch>
+                  <Match when={descsFetched.loading}>
+                    <div class="flex w-full justify-center pb-6 dark:text-white">
+                      <FaSolidSpinner class="animate-fade_in_slow_loading text-lg" />
+                    </div>
+                  </Match>
+                  <Match when={descsFetched.error}>
+                    <div class="flex w-full justify-center pb-6 dark:text-white">
+                      <span>Network error. Please try again.</span>
+                    </div>
+                  </Match>
+                  <Match when={descsFetched()}>
+                    <For each={descsFetched()}>
+                      {(item) => {
+                        return (
+                          <Show when={typeof item.content === "string"}>
+                            <p class="mb-1.5 dark:text-white">{item.content}</p>
+                          </Show>
+                        );
+                      }}
+                    </For>
+                  </Match>
+                </Switch>
+                <Switch>
+                  <Match when={imagesFetched.loading}>
+                    <div class="flex w-full justify-center pb-6 dark:text-white">
+                      <FaSolidSpinner class="animate-fade_in_slow_loading text-lg" />
+                    </div>
+                  </Match>
+                  <Match when={imagesFetched.error}>
+                    <div class="flex w-full justify-center pb-6 dark:text-white">
+                      <span>Network error. Please try again.</span>
+                    </div>
+                  </Match>
+                  {/* TODO: Type Unsafe */}
+                  <Match when={imagesFetched() && imagesFetched().length > 0}>
+                    <div class="mt-3 flex h-48 snap-x snap-mandatory flex-row gap-3 overflow-x-scroll">
+                      <For each={imagesFetched()}>
                         {(item) => {
                           return (
-                            <Show when={typeof item.content === "string"}>
-                              <p class="mb-1.5 dark:text-white">
-                                {item.content}
-                              </p>
-                            </Show>
+                            <img class="snap-center" src={item.img_link} />
                           );
                         }}
                       </For>
-                    </Match>
-                  </Switch>
-                  <Switch>
-                    <Match when={imagesFetched.loading}>
-                      <div class="flex w-full justify-center pb-6 dark:text-white">
-                        <FaSolidSpinner class="animate-fade_in_slow_loading text-lg" />
-                      </div>
-                    </Match>
-                    <Match when={imagesFetched.error}>
-                      <div class="flex w-full justify-center pb-6 dark:text-white">
-                        <span>Network error. Please try again.</span>
-                      </div>
-                    </Match>
-                    {/* TODO: Type Unsafe */}
-                    <Match when={imagesFetched() && imagesFetched().length > 0}>
-                      <div class="mt-3 flex h-48 snap-x snap-mandatory flex-row gap-3 overflow-x-scroll">
-                        <For each={imagesFetched()}>
-                          {(item) => {
-                            return (
-                              <img class="snap-center" src={item.img_link} />
-                            );
-                          }}
-                        </For>
-                      </div>
-                    </Match>
-                  </Switch>
-                </div>
+                    </div>
+                  </Match>
+                </Switch>
               </div>
             </div>
             <div class="bg-gray-50 px-4 py-3 sm:flex sm:gap-4 sm:px-6 dark:bg-black_olive">
