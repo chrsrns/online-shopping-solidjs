@@ -115,7 +115,7 @@ const ProductsPage = () => {
                           setShowModal(true);
                         }}
                       >
-                        <button class="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
+                        <button class="absolute end-4 top-4 z-10 hidden rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
                           <span class="sr-only">Wishlist</span>
 
                           <svg
