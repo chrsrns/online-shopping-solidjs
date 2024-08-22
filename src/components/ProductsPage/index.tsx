@@ -207,7 +207,9 @@ const ProductsPage = () => {
             </Match>
           </Switch>
         </div>
-        <div class="pointer-events-none absolute inset-4">
+        <div
+          class={`${showModal() || showOffCanvas() ? "hidden" : "block"} pointer-events-none absolute inset-4`}
+        >
           <Toaster containerStyle={{ position: "sticky", "z-index": 15 }} />
         </div>
       </div>
