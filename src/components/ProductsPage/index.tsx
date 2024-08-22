@@ -74,7 +74,7 @@ const ProductsPage = () => {
         ref={topBar}
         children={[
           <button
-            class="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 dark:bg-jet-400 dark:text-white dark:hover:text-neutral-400"
+            class="block rounded bg-gray-100 p-2.5 text-neutral-800 transition hover:text-gray-600/75 dark:bg-jet-400 dark:text-white dark:hover:text-neutral-400"
             onClick={() => {
               setShowOffCanvas(true);
             }}

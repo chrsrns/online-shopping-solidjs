@@ -141,7 +141,7 @@ const ProductItemModal = (props: ProductItemModalProps) => {
                 </Switch>
               </div>
             </div>
-            <div class="bg-gray-50 px-4 py-3 sm:flex sm:gap-4 sm:px-6 dark:bg-black_olive">
+            <div class="bg-timberwolf-800 px-4 py-3 sm:flex sm:gap-4 sm:px-6 dark:bg-black_olive">
               <button
                 class="block w-full rounded bg-yellow-400 p-2 text-sm font-medium transition hover:scale-105"
                 onClick={() => {
