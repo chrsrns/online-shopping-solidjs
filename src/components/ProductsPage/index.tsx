@@ -15,11 +15,31 @@ import { ProductItem } from "./ProductItem";
 import CartOffcanvas from "../CheckoutCart";
 import { CartItemEntry } from "../CheckoutCart/CartItemEntry";
 import { FaSolidCartShopping } from "solid-icons/fa";
+import toast, { Toaster } from "solid-toast";
 
 const fetchShopItems = async () => {
   const response = await fetch("http://127.0.0.1:8000/api/shopitems");
   return response.json();
 };
+const addToCartToast = () =>
+  toast("Added to cart.", {
+    className: "dark:!bg-jet-500 dark:!text-white",
+    icon: (
+      <div class="dark:!text-white">
+        <svg
+          fill="currentColor"
+          stroke-width="0"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512"
+          style="overflow: visible; color: currentcolor;"
+          height="1em"
+          width="1em"
+        >
+          <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7l233.4-233.3c12.5-12.5 32.8-12.5 45.3 0z"></path>
+        </svg>
+      </div>
+    ),
+  });
 
 const ProductsPage = () => {
   let topBar!: HTMLDivElement;
@@ -64,9 +84,6 @@ const ProductsPage = () => {
           </button>,
         ]}
       />
-      <h1 class="pb-10 pt-10 text-center text-4xl dark:text-white">
-        All Items
-      </h1>
       <CartOffcanvas
         isShow={showOffCanvas()}
         setShow={setShowOffCanvas}
@@ -95,95 +112,104 @@ const ProductsPage = () => {
           setShowModal(true);
         }}
       />
-      <div class="grid grid-cols-1 gap-4 px-8 sm:grid-cols-2 sm:px-16 md:grid-cols-3 lg:gap-8">
-        <Switch>
-          <Match when={shopItems.error}>
-            <span>Error: {shopItems.error}</span>
-          </Match>
-          <Match when={shopItems()}>
-            <For each={shopItems()}>
-              {(item) => {
-                const productItemFromData = ProductItem.fromData(item);
-                return match(productItemFromData, {
-                  Some: (productItem) => {
-                    return (
-                      <a
-                        href="#"
-                        class="group relative block overflow-hidden rounded-lg shadow-lg"
-                        onClick={() => {
-                          setProductItem(productItem);
-                          setShowModal(true);
-                        }}
-                      >
-                        <button class="absolute end-4 top-4 z-10 hidden rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
-                          <span class="sr-only">Wishlist</span>
+      <div class="relative">
+        <h1 class="pb-10 pt-10 text-center text-4xl dark:text-white">
+          All Items
+        </h1>
+        <div class="grid grid-cols-1 gap-4 px-8 sm:grid-cols-2 sm:px-16 md:grid-cols-3 lg:gap-8">
+          <Switch>
+            <Match when={shopItems.error}>
+              <span>Error: {shopItems.error}</span>
+            </Match>
+            <Match when={shopItems()}>
+              <For each={shopItems()}>
+                {(item) => {
+                  const productItemFromData = ProductItem.fromData(item);
+                  return match(productItemFromData, {
+                    Some: (productItem) => {
+                      return (
+                        <a
+                          href="#"
+                          class="group relative block overflow-hidden rounded-lg shadow-lg"
+                          onClick={() => {
+                            setProductItem(productItem);
+                            setShowModal(true);
+                          }}
+                        >
+                          <button class="absolute end-4 top-4 z-10 hidden rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
+                            <span class="sr-only">Wishlist</span>
 
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1.5"
-                            stroke="currentColor"
-                            class="h-4 w-4"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-                            />
-                          </svg>
-                        </button>
-
-                        <img
-                          src={productItem.img_link}
-                          alt=""
-                          class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
-                        />
-
-                        <div class="relative bg-white p-6 dark:bg-black_olive">
-                          {/* <span class="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium"> */}
-                          {/*   {" "} */}
-                          {/*   New{" "} */}
-                          {/* </span> */}
-
-                          <h3 class="text-lg font-medium text-gray-900 dark:text-white">
-                            {productItem.iname}
-                          </h3>
-
-                          <p class="mt-1.5 text-sm text-gray-700 dark:text-white">
-                            {Number(productItem.price).toLocaleString("en", {
-                              style: "currency",
-                              currency: "PHP",
-                            })}
-                          </p>
-
-                          <form class="mt-4">
-                            <button
-                              class="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105"
-                              onClick={(event) => {
-                                event.stopPropagation();
-                                addToCart(
-                                  cartItems(),
-                                  productItem,
-                                  setCartItems,
-                                );
-                              }}
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke-width="1.5"
+                              stroke="currentColor"
+                              class="h-4 w-4"
                             >
-                              Add to Cart
-                            </button>
-                          </form>
-                        </div>
-                      </a>
-                    );
-                  },
-                  None: () => {
-                    return <div>Error</div>;
-                  },
-                });
-              }}
-            </For>
-          </Match>
-        </Switch>
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                              />
+                            </svg>
+                          </button>
+
+                          <img
+                            src={productItem.img_link}
+                            alt=""
+                            class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
+                          />
+
+                          <div class="relative bg-white p-6 dark:bg-black_olive">
+                            {/* <span class="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium"> */}
+                            {/*   {" "} */}
+                            {/*   New{" "} */}
+                            {/* </span> */}
+
+                            <h3 class="text-lg font-medium text-gray-900 dark:text-white">
+                              {productItem.iname}
+                            </h3>
+
+                            <p class="mt-1.5 text-sm text-gray-700 dark:text-white">
+                              {Number(productItem.price).toLocaleString("en", {
+                                style: "currency",
+                                currency: "PHP",
+                              })}
+                            </p>
+
+                            <form class="mt-4">
+                              <button
+                                class="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105"
+                                onClick={(event) => {
+                                  event.stopPropagation();
+                                  addToCartToast();
+                                  addToCart(
+                                    cartItems(),
+                                    productItem,
+                                    setCartItems,
+                                  );
+                                }}
+                              >
+                                Add to Cart
+                              </button>
+                            </form>
+                          </div>
+                        </a>
+                      );
+                    },
+                    None: () => {
+                      return <div>Error</div>;
+                    },
+                  });
+                }}
+              </For>
+            </Match>
+          </Switch>
+        </div>
+        <div class="pointer-events-none absolute inset-4">
+          <Toaster containerStyle={{ position: "sticky", "z-index": 15 }} />
+        </div>
       </div>
       <div class="py-12 text-center text-lg dark:text-timberwolf">
         End of the list
