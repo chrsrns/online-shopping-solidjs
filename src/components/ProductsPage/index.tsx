@@ -132,6 +132,7 @@ const ProductsPage = () => {
                           href="#"
                           class="group relative block overflow-hidden rounded-lg shadow-lg"
                           onClick={() => {
+                            toast.remove();
                             setProductItem(productItem);
                             setShowModal(true);
                           }}
@@ -203,7 +204,7 @@ const ProductsPage = () => {
           </Switch>
         </div>
         <div
-          class={`${showModal() || showOffCanvas() ? "hidden" : "block"} pointer-events-none absolute inset-4`}
+          class={`${showModal() || showOffCanvas() ? "invisible opacity-0" : "visible opacity-100"} pointer-events-none absolute inset-4 transition-all`}
         >
           <Toaster containerStyle={{ position: "sticky", "z-index": 15 }} />
         </div>
