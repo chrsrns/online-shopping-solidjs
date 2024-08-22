@@ -85,7 +85,7 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
                           let buttonsRef!: HTMLDivElement;
                           let isButtonsExpanded = false;
                           return (
-                            <div class="mb-3 flex flex-col overflow-hidden rounded-lg bg-black_olive-500 shadow">
+                            <div class="mb-3 flex flex-col overflow-hidden rounded-lg bg-timberwolf-900 shadow dark:bg-black_olive-500">
                               <div
                                 class="flex flex-row"
                                 onClick={() => {
@@ -106,10 +106,10 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
                                   />
                                 </div>
                                 <div class="flex flex-grow flex-col py-2 ps-4">
-                                  <h2 class="mb-1 inline-block text-base text-gray-700 dark:text-white">
+                                  <h2 class="mb-1 inline-block text-base dark:text-white">
                                     {shopItem.iname}
                                   </h2>
-                                  <p class="text-base font-bold text-gray-700 dark:text-white">
+                                  <p class="text-base font-bold dark:text-white">
                                     {Number(shopItem.price).toLocaleString(
                                       "en",
                                       {
@@ -120,10 +120,10 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
                                   </p>
                                 </div>
                                 <div class="flex h-full flex-col items-end px-4 py-2">
-                                  <h2 class="mb-1 inline-block text-sm text-gray-700 dark:text-white">
+                                  <h2 class="mb-1 inline-block text-sm dark:text-white">
                                     {amount}x
                                   </h2>
-                                  <p class="text-sm font-bold text-gray-700 dark:text-white">
+                                  <p class="text-sm font-bold dark:text-white">
                                     {Number(
                                       shopItem.price * amount,
                                     ).toLocaleString("en", {
@@ -135,11 +135,11 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
                               </div>
                               <div
                                 ref={buttonsRef}
-                                class="flex h-0 w-full origin-bottom transform flex-col-reverse overflow-clip bg-jet-500 transition-all"
+                                class="flex h-0 w-full origin-bottom transform flex-col-reverse overflow-clip bg-jet-900 transition-all dark:bg-jet-500"
                               >
                                 <div class="flex w-full flex-row">
                                   <div
-                                    class="flex h-full flex-grow flex-col-reverse items-center !p-3 text-white"
+                                    class="flex h-full flex-grow flex-col-reverse items-center !p-3 dark:text-white"
                                     onClick={() => {
                                       if (item) props.onItemSearch(item[0]);
                                     }}
@@ -167,7 +167,7 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
             </div>
 
             <Show when={props.itemsOnCart.length > 0}>
-              <div class="flex bg-walnut_brown-300 p-4 dark:text-white">
+              <div class="flex bg-walnut_brown-900 p-4 dark:bg-walnut_brown-300 dark:text-white">
                 <div class="flex-grow">Total</div>
                 <div>
                   {Number(totalPrice()).toLocaleString("en", {
