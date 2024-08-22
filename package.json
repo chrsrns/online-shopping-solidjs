@@ -30,6 +30,7 @@
     "oxide.ts": "^1.1.0",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "solid-icons": "^1.1.0",
-    "solid-js": "^1.8.11"
+    "solid-js": "^1.8.11",
+    "solid-toast": "^0.5.0"
   }
 }
