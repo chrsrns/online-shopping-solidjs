@@ -9,6 +9,7 @@ import {
 } from "solid-js";
 import { ProductItem } from "../ProductsPage/ProductItem";
 import { FaSolidSpinner } from "solid-icons/fa";
+import toast, { Toaster } from "solid-toast";
 
 interface ProductItemModalProps {
   setShow: Setter<boolean>;
@@ -25,6 +26,27 @@ const fetchShopItemImgs = async (id: number) => {
   );
   return response.json();
 };
+const addToCartToast = () =>
+  toast("Added to cart.", {
+    className: "dark:!bg-jet-500 dark:!text-white",
+    duration: 15000,
+    icon: (
+      <div class="dark:!text-white">
+        <svg
+          fill="currentColor"
+          stroke-width="0"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512"
+          style="overflow: visible; color: currentcolor;"
+          height="1em"
+          width="1em"
+        >
+          <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7l233.4-233.3c12.5-12.5 32.8-12.5 45.3 0z"></path>
+        </svg>
+      </div>
+    ),
+  });
+
 const ProductItemModal = (props: ProductItemModalProps) => {
   const [descsFetched] = createResource(
     props.productItem.id,
@@ -122,7 +144,10 @@ const ProductItemModal = (props: ProductItemModalProps) => {
             <div class="bg-gray-50 px-4 py-3 sm:flex sm:gap-4 sm:px-6 dark:bg-black_olive">
               <button
                 class="block w-full rounded bg-yellow-400 p-2 text-sm font-medium transition hover:scale-105"
-                onClick={() => props.onCheckoutClick()}
+                onClick={() => {
+                  props.onCheckoutClick();
+                  addToCartToast();
+                }}
               >
                 Add to Cart
               </button>
@@ -131,6 +156,7 @@ const ProductItemModal = (props: ProductItemModalProps) => {
                 class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
                 onClick={() => {
                   props.setShow(false);
+                  toast.remove();
                 }}
               >
                 Close
@@ -139,6 +165,7 @@ const ProductItemModal = (props: ProductItemModalProps) => {
           </div>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };
