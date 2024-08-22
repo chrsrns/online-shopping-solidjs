@@ -7,7 +7,7 @@ interface TopBarProps {
 }
 const Topbar = (props: TopBarProps) => {
   return (
-    <header ref={props.ref} class="bg-walnut_brown-900 dark:bg-jet">
+    <header ref={props.ref} class="bg-timberwolf-800 dark:bg-jet">
       <div class="mx-auto flex h-16 max-w-screen-xl items-center justify-center gap-8 px-4 sm:px-6 md:justify-start lg:px-8">
         <a class="block text-dim_gray dark:text-timberwolf" href="#">
           <span class="sr-only">Home</span>
