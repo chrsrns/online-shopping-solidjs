@@ -117,7 +117,7 @@ const LandingAnimationSection = (props: LandingAnimationSectionProps) => {
     <div class="snap-center" id="animation">
       <section
         ref={props.ref}
-        class="flex flex-col items-center justify-center overflow-hidden bg-walnut_brown-800 py-8 sm:pt-16 md:pt-0 2xl:pt-16 dark:bg-walnut_brown-300"
+        class="flex flex-col items-center justify-center overflow-hidden bg-walnut_brown-900 py-8 sm:pt-16 md:pt-0 2xl:pt-16 dark:bg-walnut_brown-300"
       >
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 items-center md:grid-cols-2">

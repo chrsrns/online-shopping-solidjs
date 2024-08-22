@@ -150,7 +150,10 @@ const LandingTestimonialsSection = (props: ComponentRefProps) => {
   });
   return (
     <div class="snap-center">
-      <section ref={props.ref} class="bg-gray-50 dark:bg-walnut_brown-300">
+      <section
+        ref={props.ref}
+        class="bg-walnut_brown-900 dark:bg-walnut_brown-300"
+      >
         <div class="mx-auto max-w-[1340px] py-8 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
           <div class="flex flex-col items-center gap-8 lg:items-start">
             <div class="max-w-xl px-4 text-center lg:text-left rtl:lg:text-right">
