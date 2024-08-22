@@ -7,7 +7,7 @@ interface TopBarProps {
 }
 const Topbar = (props: TopBarProps) => {
   return (
-    <header ref={props.ref} class="bg-white dark:bg-jet">
+    <header ref={props.ref} class="bg-walnut_brown-900 dark:bg-jet">
       <div class="mx-auto flex h-16 max-w-screen-xl items-center justify-center gap-8 px-4 sm:px-6 md:justify-start lg:px-8">
         <a class="block text-dim_gray dark:text-timberwolf" href="#">
           <span class="sr-only">Home</span>
@@ -29,7 +29,7 @@ const Topbar = (props: TopBarProps) => {
             <ul class="flex items-center gap-6 text-sm">
               <li>
                 <A
-                  class="text-base text-gray-500 transition hover:text-gray-500/75 dark:text-gray-200 dark:hover:text-gray-200/75"
+                  class="text-base transition hover:text-gray-500/75 dark:text-gray-200 dark:hover:text-gray-200/75"
                   href="/"
                 >
                   {" "}
@@ -39,7 +39,7 @@ const Topbar = (props: TopBarProps) => {
 
               <li>
                 <A
-                  class="text-base text-gray-500 transition hover:text-gray-500/75 dark:text-gray-200 dark:hover:text-gray-200/75"
+                  class="text-base transition hover:text-gray-500/75 dark:text-gray-200 dark:hover:text-gray-200/75"
                   href="/about"
                 >
                   {" "}
@@ -49,7 +49,7 @@ const Topbar = (props: TopBarProps) => {
 
               <li>
                 <A
-                  class="text-base text-gray-500 transition hover:text-gray-500/75 dark:text-gray-200 dark:hover:text-gray-200/75"
+                  class="text-base transition hover:text-gray-500/75 dark:text-gray-200 dark:hover:text-gray-200/75"
                   href="/shop"
                 >
                   {" "}
