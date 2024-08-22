@@ -58,7 +58,7 @@ const ProductsPage = () => {
 
   return (
     <div
-      class={`${showModal() || showOffCanvas() ? "overflow-hidden" : "overflow-y-scroll"} h-screen dark:bg-walnut_brown-400`}
+      class={`${showModal() || showOffCanvas() ? "overflow-hidden" : "overflow-y-scroll"} flex h-screen flex-col dark:bg-walnut_brown-400`}
     >
       <Show when={showModal() && productItem()}>
         <ProductItemModal
@@ -112,7 +112,7 @@ const ProductsPage = () => {
           setShowModal(true);
         }}
       />
-      <div class="relative">
+      <div class="relative flex-grow overflow-scroll">
         <h1 class="pb-10 pt-10 text-center text-4xl dark:text-white">
           All Items
         </h1>
@@ -203,14 +203,14 @@ const ProductsPage = () => {
             </Match>
           </Switch>
         </div>
+        <div class="py-12 text-center text-lg dark:text-timberwolf">
+          End of the list
+        </div>
         <div
           class={`${showModal() || showOffCanvas() ? "invisible opacity-0" : "visible opacity-100"} pointer-events-none absolute inset-4 transition-all`}
         >
           <Toaster containerStyle={{ position: "sticky", "z-index": 15 }} />
         </div>
-      </div>
-      <div class="py-12 text-center text-lg dark:text-timberwolf">
-        End of the list
       </div>
     </div>
   );
