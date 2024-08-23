@@ -21,20 +21,20 @@ const LandingProductsCarousel = (props: ComponentRefProps) => {
         <For each={shopItems()}>
           {(item, index) => (
             <div class="flex-grow-1 flex h-full w-full flex-shrink-0 basis-full snap-center flex-col items-center justify-center overflow-clip rounded-md bg-timberwolf dark:bg-black_olive dark:text-white">
-              <div class="inline-flex w-full flex-grow flex-wrap overflow-auto">
-                <div class="rounded-lg bg-timberwolf p-6 dark:bg-black_olive dark:text-white">
-                  <div class="aspect-square h-48 w-full sm:h-64">
+              <div class="flex w-full flex-grow flex-col items-stretch overflow-auto sm:flex-row">
+                <div class="flex flex-col items-center rounded-lg bg-timberwolf p-6 dark:bg-black_olive dark:text-white">
+                  <div class="mb-4 size-64 sm:size-48">
                     <img
                       src={item.img_link}
                       alt=""
-                      class="mb-4 size-full rounded-full object-cover transition duration-500 group-hover:scale-105"
+                      class="size-full rounded-full object-cover transition duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <div class="px-6 sm:pb-4">
+                  <div class="flex flex-col px-6 text-center sm:pb-4">
                     <h3 class="text-lg font-medium text-gray-900 dark:text-white">
                       {item.iname}
                     </h3>
-                    <p class="mb-5 mt-1.5 text-xl font-bold text-gray-700 dark:text-white">
+                    <p class="mt-1.5 text-xl font-bold text-gray-700 dark:text-white">
                       {Number(item.price).toLocaleString("en", {
                         style: "currency",
                         currency: "PHP",
@@ -42,7 +42,7 @@ const LandingProductsCarousel = (props: ComponentRefProps) => {
                     </p>
                   </div>
                 </div>
-                <div class="w-min min-w-72 flex-grow p-6 dark:bg-black_olive-300">
+                <div class="flex-grow overflow-y-scroll p-6 dark:bg-black_olive-300">
                   {(() => {
                     const [descsFetched] = createResource(
                       item.id,
@@ -62,6 +62,9 @@ const LandingProductsCarousel = (props: ComponentRefProps) => {
                           </div>
                         </Match>
                         <Match when={descsFetched()}>
+                          <h3 class="mb-1.5 text-xl font-bold text-gray-700 dark:text-white">
+                            Product Description
+                          </h3>
                           <For each={descsFetched()}>
                             {(descItem) => {
                               return (
