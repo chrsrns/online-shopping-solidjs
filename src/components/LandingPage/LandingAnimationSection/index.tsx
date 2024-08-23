@@ -135,7 +135,7 @@ const LandingAnimationSection = (props: LandingAnimationSectionProps) => {
 
               <p class="text-md mb-8 mt-4 text-center text-gray-600 sm:text-xl md:mt-8 md:text-left dark:text-gray-300">
                 <span class="relative inline-block">
-                  <span class="absolute bottom-0.5 inline-block h-2 w-full bg-yellow-300 dark:bg-gray-900"></span>
+                  <span class="absolute bottom-0.5 inline-block h-2 w-full bg-yellow-100/50 dark:bg-gray-900 dark:bg-yellow-900/50"></span>
                   <span class="relative">
                     {" "}
                     We handle the heavy lifting for you{" "}
