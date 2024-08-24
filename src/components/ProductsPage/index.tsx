@@ -55,31 +55,30 @@ const ProductsPage = () => {
     if (shopItems()) {
       console.log("Data: ");
       console.log(shopItems());
-    }
-    if (productId()) {
-      const productId_safe = productId() as string;
-      let isSet = false;
+      if (productId()) {
+        const productId_safe = productId() as string;
+        let isSet = false;
 
-      for (const item of shopItems()) {
-        if (isSet) break;
-        const productItemObj = ProductItem.fromData(item);
-        match(productItemObj, {
-          Some: (productItemMatched) => {
-            if (productItemMatched.id === parseInt(productId_safe)) {
-              setProductItem(productItemMatched);
-              isSet = true;
-            }
-          },
-          None: () => {},
-        });
-      }
+        for (const item of shopItems()) {
+          const productItemObj = ProductItem.fromData(item);
+          match(productItemObj, {
+            Some: (productItemMatched) => {
+              if (productItemMatched.id === parseInt(productId_safe)) {
+                setProductItem(productItemMatched);
+                isSet = true;
+              }
+            },
+            None: () => {},
+          });
+        }
 
-      if (!isSet) {
-        setProductItem(undefined);
-        setSearchParams({
-          ...searchParams,
-          product_id: "",
-        });
+        if (!isSet) {
+          setProductItem(undefined);
+          setSearchParams({
+            ...searchParams,
+            product_id: "",
+          });
+        }
       }
     }
   });
