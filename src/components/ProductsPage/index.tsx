@@ -73,6 +73,10 @@ const ProductsPage = () => {
         }
 
         if (!isSet) {
+          toast("Invalid product link", {
+            className: "dark:!bg-jet-500 dark:!text-white",
+            duration: 3000,
+          });
           setProductItem(undefined);
           setSearchParams({
             ...searchParams,
