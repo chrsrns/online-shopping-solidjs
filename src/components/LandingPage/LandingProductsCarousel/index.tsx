@@ -19,16 +19,16 @@ const LandingProductsCarousel = (props: ComponentRefProps) => {
         class="flex w-full flex-col items-center bg-timberwolf-900 pt-8 dark:bg-dim_gray"
       >
         <div class="max-w-xl px-4 text-center lg:text-left rtl:lg:text-right">
-          <h2 class="mb-8 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+          <h2 class="mb-8 text-3xl font-bold tracking-tight text-gray-900 sm:mb-10 sm:text-4xl dark:text-white">
             Our most famous products
           </h2>
         </div>
         <div class="flex w-full flex-grow snap-x snap-mandatory items-center gap-4 overflow-x-auto px-8 pb-8 xl:gap-8 xl:px-16">
           <For each={shopItems()}>
             {(item, index) => (
-              <div class="flex h-full flex-shrink-0 flex-grow basis-full snap-center flex-col items-center justify-center overflow-clip rounded-md bg-timberwolf sm:basis-4/5 dark:bg-black_olive dark:text-white">
+              <div class="flex h-full flex-shrink-0 flex-grow basis-full snap-center flex-col items-center justify-center overflow-clip rounded-md bg-timberwolf-700 sm:basis-4/5 dark:bg-black_olive dark:text-white">
                 <div class="flex w-full flex-grow flex-col items-stretch overflow-auto sm:flex-row">
-                  <div class="flex flex-col items-center rounded-lg bg-timberwolf p-6 dark:bg-black_olive dark:text-white">
+                  <div class="flex flex-col items-center rounded-lg p-6">
                     <div class="mb-4 size-48">
                       <img
                         src={item.img_link}
@@ -48,7 +48,7 @@ const LandingProductsCarousel = (props: ComponentRefProps) => {
                       </p>
                     </div>
                   </div>
-                  <div class="flex-grow overflow-y-scroll p-6 dark:bg-black_olive-300">
+                  <div class="flex-grow overflow-y-scroll bg-black_olive-900 p-6 dark:bg-black_olive-300">
                     {(() => {
                       const [descsFetched] = createResource(
                         item.id,
