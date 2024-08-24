@@ -45,7 +45,6 @@ const addToCartToast = () =>
 const ProductsPage = () => {
   let topBar!: HTMLDivElement;
   const [shopItems] = createResource(fetchShopItems);
-  const [showModal, setShowModal] = createSignal(false);
   const [showOffCanvas, setShowOffCanvas] = createSignal(false);
   const [productItem, setProductItem] = createSignal<ProductItem>();
   const [cartItems, setCartItems] = createSignal<CartItemEntry[]>([]);
@@ -68,7 +67,6 @@ const ProductsPage = () => {
           Some: (productItemMatched) => {
             if (productItemMatched.id === parseInt(productId_safe)) {
               setProductItem(productItemMatched);
-              setShowModal(true);
               isSet = true;
             }
           },
@@ -76,18 +74,16 @@ const ProductsPage = () => {
         });
       }
       if (!isSet) {
-        setShowModal(false);
+        setProductItem(undefined);
       }
-    } else {
-      setShowModal(false);
     }
   });
 
   return (
     <div
-      class={`${showModal() || showOffCanvas() ? "overflow-hidden" : "overflow-y-scroll"} flex h-screen flex-col dark:bg-walnut_brown-400`}
+      class={`${productId() || showOffCanvas() ? "overflow-hidden" : "overflow-y-scroll"} flex h-screen flex-col dark:bg-walnut_brown-400`}
     >
-      <Show when={showModal() && productItem()}>
+      <Show when={productId() && productItem()}>
         <ProductItemModal
           // casted since the show element already checks for this
           productItem={productItem() as ProductItem}
@@ -95,7 +91,6 @@ const ProductsPage = () => {
             addToCart(cartItems(), productItem() as ProductItem, setCartItems);
           }}
           onCloseClick={() => {
-            setShowModal(false);
             setSearchParams({
               ...searchParams,
               product_id: "",
@@ -140,9 +135,8 @@ const ProductsPage = () => {
           }
         }}
         onItemSearch={(item) => {
-          setProductItem(item);
           setShowOffCanvas(false);
-          setShowModal(true);
+          setSearchParams({ ...searchParams, product_id: item.id });
         }}
       />
       <div class="relative flex-grow overflow-scroll">
@@ -242,7 +236,7 @@ const ProductsPage = () => {
           End of the list
         </div>
         <div
-          class={`${showModal() || showOffCanvas() ? "invisible opacity-0" : "visible opacity-100"} pointer-events-none absolute inset-4 transition-all`}
+          class={`${productId() || showOffCanvas() ? "invisible opacity-0" : "visible opacity-100"} pointer-events-none absolute inset-4 transition-all`}
         >
           <Toaster containerStyle={{ position: "sticky", "z-index": 15 }} />
         </div>
