@@ -16,6 +16,7 @@ import CartOffcanvas from "../CheckoutCart";
 import { CartItemEntry } from "../CheckoutCart/CartItemEntry";
 import { FaSolidCartShopping } from "solid-icons/fa";
 import toast, { Toaster } from "solid-toast";
+import { useSearchParams } from "@solidjs/router";
 
 const fetchShopItems = async () => {
   const response = await fetch("http://127.0.0.1:8000/api/shopitems");
@@ -48,11 +49,37 @@ const ProductsPage = () => {
   const [showOffCanvas, setShowOffCanvas] = createSignal(false);
   const [productItem, setProductItem] = createSignal<ProductItem>();
   const [cartItems, setCartItems] = createSignal<CartItemEntry[]>([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const productId = () => searchParams.product_id;
 
   createEffect(() => {
     if (shopItems()) {
       console.log("Data: ");
       console.log(shopItems());
+    }
+    if (productId()) {
+      const productId_safe = productId() as string;
+      let isSet = false;
+
+      for (const item of shopItems()) {
+        if (isSet) break;
+        const productItemObj = ProductItem.fromData(item);
+        match(productItemObj, {
+          Some: (productItemMatched) => {
+            if (productItemMatched.id === parseInt(productId_safe)) {
+              setProductItem(productItemMatched);
+              setShowModal(true);
+              isSet = true;
+            }
+          },
+          None: () => {},
+        });
+      }
+      if (!isSet) {
+        setShowModal(false);
+      }
+    } else {
+      setShowModal(false);
     }
   });
 
@@ -62,11 +89,17 @@ const ProductsPage = () => {
     >
       <Show when={showModal() && productItem()}>
         <ProductItemModal
-          setShow={setShowModal}
           // casted since the show element already checks for this
           productItem={productItem() as ProductItem}
           onCheckoutClick={() => {
             addToCart(cartItems(), productItem() as ProductItem, setCartItems);
+          }}
+          onCloseClick={() => {
+            setShowModal(false);
+            setSearchParams({
+              ...searchParams,
+              product_id: "",
+            });
           }}
         ></ProductItemModal>
       </Show>
@@ -133,8 +166,10 @@ const ProductsPage = () => {
                           class="group relative block overflow-hidden rounded-lg shadow-lg"
                           onClick={() => {
                             toast.remove();
-                            setProductItem(productItem);
-                            setShowModal(true);
+                            setSearchParams({
+                              ...searchParams,
+                              product_id: productItem.id,
+                            });
                           }}
                         >
                           <button class="absolute end-4 top-4 z-10 hidden rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
