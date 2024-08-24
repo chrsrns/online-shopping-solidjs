@@ -148,6 +148,11 @@ const ProductsPage = () => {
         }}
       />
       <div class="relative flex-grow overflow-scroll">
+        <div
+          class={`${productId() || showOffCanvas() ? "invisible opacity-0" : "visible opacity-100"} pointer-events-none fixed z-[15] h-full w-full transform p-4 transition-all`}
+        >
+          <Toaster containerStyle={{ position: "sticky", "z-index": 15 }} />
+        </div>
         <h1 class="pb-10 pt-10 text-center text-4xl dark:text-white">
           All Items
         </h1>
@@ -242,11 +247,6 @@ const ProductsPage = () => {
         </div>
         <div class="py-12 text-center text-lg dark:text-timberwolf">
           End of the list
-        </div>
-        <div
-          class={`${productId() || showOffCanvas() ? "invisible opacity-0" : "visible opacity-100"} pointer-events-none absolute inset-4 transition-all`}
-        >
-          <Toaster containerStyle={{ position: "sticky", "z-index": 15 }} />
         </div>
       </div>
     </div>
