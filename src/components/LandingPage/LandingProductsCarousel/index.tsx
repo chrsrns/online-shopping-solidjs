@@ -1,6 +1,7 @@
 import { createResource, For, Match, Show, Switch } from "solid-js";
 import { ComponentRefProps } from "../../../ComponentRefProps";
 import { FaSolidSpinner } from "solid-icons/fa";
+import { A } from "@solidjs/router";
 
 const fetchShopItems = async () => {
   const response = await fetch("http://127.0.0.1:8000/api/shopitems");
@@ -26,7 +27,7 @@ const LandingProductsCarousel = (props: ComponentRefProps) => {
         <div class="flex w-full flex-grow snap-x snap-mandatory items-center gap-4 overflow-x-auto px-8 pb-8 xl:gap-8 xl:px-16">
           <For each={shopItems()}>
             {(item, index) => (
-              <div class="flex h-full flex-shrink-0 flex-grow basis-full snap-center flex-col items-center justify-center overflow-clip rounded-md bg-timberwolf-700 sm:basis-4/5 dark:bg-black_olive dark:text-white">
+              <div class="flex h-full flex-shrink-0 flex-grow basis-full snap-center flex-col items-center justify-center overflow-clip rounded-md bg-timberwolf-700 sm:basis-4/5 dark:bg-walnut_brown-400 dark:text-white">
                 <div class="flex w-full flex-grow flex-col items-stretch overflow-auto sm:flex-row">
                   <div class="flex flex-col items-center rounded-lg p-6">
                     <div class="mb-4 size-48">
@@ -90,6 +91,12 @@ const LandingProductsCarousel = (props: ComponentRefProps) => {
                     })()}
                   </div>
                 </div>
+
+                <A href={`/shop?product_id=${item.id}`} class="w-full">
+                  <button class="w-full bg-yellow-400 pb-2.5 pt-2 text-black">
+                    Go to product page
+                  </button>
+                </A>
               </div>
             )}
           </For>
