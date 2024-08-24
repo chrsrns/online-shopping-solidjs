@@ -73,8 +73,13 @@ const ProductsPage = () => {
           None: () => {},
         });
       }
+
       if (!isSet) {
         setProductItem(undefined);
+        setSearchParams({
+          ...searchParams,
+          product_id: "",
+        });
       }
     }
   });
