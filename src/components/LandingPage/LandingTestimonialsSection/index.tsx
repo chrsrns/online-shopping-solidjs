@@ -9,44 +9,48 @@ import { createMediaQuery } from "@solid-primitives/media";
 const LandingTestimonialsSection = (props: ComponentRefProps) => {
   const slidesData: { header: string; content: string; author: string }[] = [
     {
-      header: "Testimonial 1",
-      content: `No, Rose, they are not breathing. And they have no arms
-        or legs … Where are they? You know what? If we come
-        across somebody with no arms or legs, do we bother
-        resuscitating them? I mean, what quality of life do we
-        have there?
+      header: "My go-to place for stylish furniture",
+      content: `But I must explain to you how all this 
+        mistaken idea of denouncing pleasure and praising
+        pain was born and I will give you a complete account
+        of the system, and expound the actual teachings
+        of the great explorer of the truth, the master-builder
+        of human happiness.
         `,
-      author: "Christian Aranas",
+      author: "Emma Johnson",
     },
     {
-      header: "Testimonial 2",
-      content: `No, Rose, they are not breathing. And they have no arms
-        or legs … Where are they? You know what? If we come
-        across somebody with no arms or legs, do we bother
-        resuscitating them? I mean, what quality of life do we
-        have there?
+      header: "Exceptional quality at an affordable price",
+      content: `No one rejects, dislikes, or avoids pleasure
+        itself, because it is pleasure, but because those
+        who do not know how to pursue pleasure rationally
+        encounter consequences that are extremely painful.
+        Nor again is there anyone who loves or pursues or desires.
         `,
-      author: "Christian Aranas",
+      author: "Liam Davis",
     },
     {
-      header: "Testimonial 3",
-      content: `No, Rose, they are not breathing. And they have no arms
-        or legs … Where are they? You know what? If we come
-        across somebody with no arms or legs, do we bother
-        resuscitating them? I mean, what quality of life do we
-        have there?
+      header: "Best furnitures for the money",
+      content: `
+        Nor again is there anyone who loves or pursues or desires
+        to obtain pain of itself, because it is pain, but
+        because occasionally circumstances occur in which
+        toil and pain can procure him some great pleasure.
+        To take a trivial example, which of us ever undertakes
+        laborious physical exercise, except to obtain some
+        advantage from it?
         `,
-      author: "Christian Aranas",
+      author: "Ethan Taylor",
     },
     {
-      header: "Testimonial 4",
-      content: `No, Rose, they are not breathing. And they have no arms
-        or legs … Where are they? You know what? If we come
-        across somebody with no arms or legs, do we bother
-        resuscitating them? I mean, what quality of life do we
-        have there?
+      header: "Great customer service for a furniture store",
+      content: `
+        But who has any right to find fault with a man who
+        chooses to enjoy a pleasure that has no annoying
+        consequences, or one who avoids a pain that produces
+        no resultant pleasure?"
         `,
-      author: "Christian Aranas",
+      author: "Mason Thomas",
     },
   ];
   onMount(() => {
