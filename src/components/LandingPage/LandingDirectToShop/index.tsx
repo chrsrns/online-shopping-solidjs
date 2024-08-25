@@ -18,7 +18,7 @@ const LandingDirectToShop = (props: ComponentRefProps) => {
           <div class="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:items-center lg:gap-x-16">
             <div class="mx-auto max-w-lg text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right">
               <h2 class="text-3xl font-bold sm:text-4xl dark:text-gray-100">
-                Find your career path
+                All your furniture needs...
               </h2>
 
               <p class="mt-4 text-gray-600 dark:text-gray-200">
@@ -32,7 +32,7 @@ const LandingDirectToShop = (props: ComponentRefProps) => {
                 href="/shop"
                 class="mt-8 inline-block rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400 dark:bg-timberwolf-500 dark:text-black hover:dark:bg-timberwolf-300 hover:dark:text-white"
               >
-                Get Started Today
+                Shop now!
               </A>
             </div>
 
