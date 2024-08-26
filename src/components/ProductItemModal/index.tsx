@@ -75,7 +75,7 @@ const ProductItemModal = (props: ProductItemModalProps) => {
 
       <div class="pointer-events-none fixed inset-0 z-10 h-screen w-screen">
         <div class="flex min-h-full flex-col items-center justify-center p-4 text-center sm:items-center sm:p-0">
-          <div class="pointer-events-auto relative flex flex-[1_1_1px] flex-grow transform animate-fade_in_fast flex-col overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg dark:bg-walnut_brown-400">
+          <div class="pointer-events-auto relative flex flex-[1_1_1px] flex-grow transform animate-fade_in_fast flex-col overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl lg:max-w-2xl dark:bg-walnut_brown-400">
             <div class="w-full flex-grow overflow-auto">
               <img
                 src={props.productItem.img_link}
