@@ -1,12 +1,17 @@
 import { A } from "@solidjs/router";
-import { For } from "solid-js";
+import { createResource, For } from "solid-js";
 import { ShopItemsPreview } from "./ShopItemsPreview";
 import { ComponentRefProps } from "../../../ComponentRefProps";
 import { createMediaQuery } from "@solid-primitives/media";
 
+const fetchShopItems = async () => {
+  const response = await fetch("http://127.0.0.1:8000/api/shopitems");
+  return response.json();
+};
 const LandingDirectToShop = (props: ComponentRefProps) => {
   const isSmall = createMediaQuery("(max-width: 640px)");
   const gridChildCount = () => (isSmall() ? 3 : 5);
+  const [shopItems] = createResource(fetchShopItems);
 
   return (
     <div class="snap-center">
@@ -37,9 +42,29 @@ const LandingDirectToShop = (props: ComponentRefProps) => {
             </div>
 
             <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
-              <For each={[...Array(gridChildCount()).keys()]}>
-                {() => ShopItemsPreview()}
+              <For each={shopItems()}>
+                {(item, index) => {
+                  if (index() > 3) return <></>;
+                  return (
+                    <a
+                      class="block aspect-square max-w-44 overflow-clip rounded-xl border shadow-sm hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
+                      href="#"
+                    >
+                      <img class="h-full object-cover" src={item.img_link} />
+
+                      <h2 class="mt-2 hidden font-bold dark:text-timberwolf-800">
+                        Accountant
+                      </h2>
+                    </a>
+                  );
+                }}
               </For>
+              <a
+                class="flex aspect-square max-w-44 items-center justify-center overflow-clip rounded-xl border shadow-sm hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
+                href="#"
+              >
+                <h2 class="font-bold dark:text-timberwolf-800">And more...</h2>
+              </a>
             </div>
           </div>
         </div>
