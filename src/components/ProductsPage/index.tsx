@@ -207,7 +207,7 @@ const ProductsPage = () => {
                           <img
                             src={productItem.img_link}
                             alt=""
-                            class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
+                            class="h-64 w-full bg-white object-contain transition duration-500 group-hover:scale-105 sm:h-72"
                           />
 
                           <div class="relative bg-white p-6 dark:bg-black_olive">

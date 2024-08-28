@@ -86,7 +86,7 @@ const ProductItemModal = (props: ProductItemModalProps) => {
               <img
                 src={props.productItem.img_link}
                 alt=""
-                class="mb-4 h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
+                class="mb-4 h-64 w-full bg-white object-contain transition duration-500 group-hover:scale-105 sm:h-72"
               />
               <div class="px-6 sm:pb-4">
                 <h3 class="text-lg font-medium text-gray-900 dark:text-white">
