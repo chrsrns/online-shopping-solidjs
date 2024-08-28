@@ -152,7 +152,7 @@ const LandingAnimationSection = (props: LandingAnimationSectionProps) => {
               />
 
               <div class="relative w-full scale-90 md:scale-100 xl:mx-auto xl:max-w-lg 2xl:origin-bottom 2xl:scale-110">
-                <img class="relative" src={BlobFurnSpace} alt="" />
+                <img class="invisible relative" src={BlobFurnSpace} alt="" />
                 <img
                   ref={furn_chair}
                   class={`absolute ${translate_l_52} top-0 opacity-0 transition duration-1000`}
