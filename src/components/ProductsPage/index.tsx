@@ -160,7 +160,7 @@ const ProductsPage = () => {
         <h1 class="pb-10 pt-10 text-center text-4xl dark:text-white">
           All Items
         </h1>
-        <div class="grid grid-cols-1 gap-4 px-8 sm:grid-cols-2 sm:px-16 md:grid-cols-3 lg:gap-8">
+        <div class="grid grid-cols-1 gap-4 px-8 sm:px-16 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           <Switch>
             <Match when={shopItems.error}>
               <span>Error: {shopItems.error}</span>
