@@ -40,7 +40,7 @@ const LandingProductsCarousel = (props: ComponentRefProps) => {
                       <img
                         src={item.img_link}
                         alt=""
-                        class="size-full rounded-full object-cover transition duration-500 group-hover:scale-105"
+                        class="size-full rounded-full object-cover p-1.5 transition duration-500 group-hover:scale-105"
                       />
                     </div>
                     <div class="flex flex-col px-6 text-center sm:pb-4">
