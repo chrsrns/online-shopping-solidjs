@@ -1,4 +1,5 @@
 import {
+  DEV,
   For,
   Match,
   Setter,
@@ -16,14 +17,19 @@ interface ProductItemModalProps {
   onCheckoutClick: () => void;
   onCloseClick: () => void;
 }
+
+const fetchShopItemDescUrl = DEV
+  ? "http://127.0.0.1:8000/api/shopitemdescs"
+  : "/api/shopitemdescs";
 const fetchShopItemDesc = async (id: number) => {
-  const response = await fetch(`http://127.0.0.1:8000/api/shopitemdescs/${id}`);
+  const response = await fetch(`${fetchShopItemDescUrl}/${id}`);
   return response.json();
 };
+const fetchShopItemImgsUrl = DEV
+  ? "http://127.0.0.1:8000/api/shopitemimages"
+  : "/api/shopitemimages";
 const fetchShopItemImgs = async (id: number) => {
-  const response = await fetch(
-    `http://127.0.0.1:8000/api/shopitemimages/${id}`,
-  );
+  const response = await fetch(`${fetchShopItemImgsUrl}/${id}`);
   return response.json();
 };
 const addToCartToast = () =>

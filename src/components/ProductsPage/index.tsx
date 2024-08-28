@@ -1,4 +1,5 @@
 import {
+  DEV,
   For,
   Match,
   Setter,
@@ -18,8 +19,11 @@ import { FaSolidCartShopping } from "solid-icons/fa";
 import toast, { Toaster } from "solid-toast";
 import { useSearchParams } from "@solidjs/router";
 
+const fetchShopItemsUrl = DEV
+  ? "http://127.0.0.1:8000/api/shopitems"
+  : "/api/shopitems";
 const fetchShopItems = async () => {
-  const response = await fetch("http://127.0.0.1:8000/api/shopitems");
+  const response = await fetch(fetchShopItemsUrl);
   return response.json();
 };
 const addToCartToast = () =>

@@ -1,14 +1,20 @@
-import { createResource, For, Match, Show, Switch } from "solid-js";
+import { createResource, DEV, For, Match, Show, Switch } from "solid-js";
 import { ComponentRefProps } from "../../../ComponentRefProps";
 import { FaSolidSpinner } from "solid-icons/fa";
 import { A } from "@solidjs/router";
 
+const fetchShopItemsUrl = DEV
+  ? "http://127.0.0.1:8000/api/shopitems"
+  : "/api/shopitems";
 const fetchShopItems = async () => {
-  const response = await fetch("http://127.0.0.1:8000/api/shopitems");
+  const response = await fetch(fetchShopItemsUrl);
   return response.json();
 };
+const fetchShopItemDescUrl = DEV
+  ? "http://127.0.0.1:8000/api/shopitemdescs"
+  : "/api/shopitemdescs";
 const fetchShopItemDesc = async (id: number) => {
-  const response = await fetch(`http://127.0.0.1:8000/api/shopitemdescs/${id}`);
+  const response = await fetch(`${fetchShopItemDescUrl}/${id}`);
   return response.json();
 };
 const LandingProductsCarousel = (props: ComponentRefProps) => {

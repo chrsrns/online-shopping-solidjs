@@ -1,11 +1,14 @@
 import { A } from "@solidjs/router";
-import { createResource, For } from "solid-js";
+import { createResource, DEV, For } from "solid-js";
 import { ShopItemsPreview } from "./ShopItemsPreview";
 import { ComponentRefProps } from "../../../ComponentRefProps";
 import { createMediaQuery } from "@solid-primitives/media";
 
+const fetchShopItemsUrl = DEV
+  ? "http://127.0.0.1:8000/api/shopitems"
+  : "/api/shopitems";
 const fetchShopItems = async () => {
-  const response = await fetch("http://127.0.0.1:8000/api/shopitems");
+  const response = await fetch(fetchShopItemsUrl);
   return response.json();
 };
 const LandingDirectToShop = (props: ComponentRefProps) => {
