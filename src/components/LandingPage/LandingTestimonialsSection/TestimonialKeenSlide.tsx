@@ -16,7 +16,7 @@ const TestimonialKeenSlide = (props: TestimonialKeenSlideProps) => {
               {props.slideHeader}
             </p>
 
-            <p class="text-md mt-2 leading-relaxed text-gray-700 sm:mt-2 sm:text-lg">
+            <p class="text-md mt-2 overflow-scroll leading-relaxed text-gray-700 sm:mt-2 sm:text-lg">
               {props.slideContent}
             </p>
           </div>

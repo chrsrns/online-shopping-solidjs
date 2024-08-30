@@ -165,7 +165,7 @@ const LandingTestimonialsSection = (props: ComponentRefProps) => {
                 Don't just take our word for it...
               </h2>
 
-              <p class="mt-4 text-gray-700 dark:text-walnut_brown-900">
+              <p class="mt-4 hidden text-gray-700 sm:block dark:text-walnut_brown-900">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Voluptas veritatis illo placeat harum porro optio fugit a culpa
                 sunt id!
