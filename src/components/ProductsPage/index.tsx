@@ -239,6 +239,7 @@ const ProductsPage = () => {
                               <button
                                 class="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105"
                                 onClick={(event) => {
+                                  event.preventDefault();
                                   event.stopPropagation();
                                   addToCartToast();
                                   addToCart(
