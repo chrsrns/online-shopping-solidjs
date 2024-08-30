@@ -17,7 +17,7 @@ import CartOffcanvas from "../CheckoutCart";
 import { CartItemEntry } from "../CheckoutCart/CartItemEntry";
 import { FaSolidCartShopping, FaSolidSpinner } from "solid-icons/fa";
 import toast, { Toaster } from "solid-toast";
-import { useSearchParams } from "@solidjs/router";
+import { A, useSearchParams } from "@solidjs/router";
 
 const fetchShopItemsUrl = DEV
   ? "http://127.0.0.1:8000/api/shopitems"
@@ -183,14 +183,11 @@ const ProductsPage = () => {
                       let [showImage, setShowImage] = createSignal(false);
 
                       return (
-                        <div
+                        <A
+                          href={`/shop?product_id=${productItem.id}`}
                           class="group relative block overflow-hidden rounded-lg shadow-lg"
-                          onClick={() => {
+                          onClick={(e) => {
                             toast.remove();
-                            setSearchParams({
-                              ...searchParams,
-                              product_id: productItem.id,
-                            });
                           }}
                         >
                           <button class="absolute end-4 top-4 z-10 hidden rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
@@ -253,7 +250,7 @@ const ProductsPage = () => {
                               </button>
                             </form>
                           </div>
-                        </div>
+                        </A>
                       );
                     },
                     None: () => {
