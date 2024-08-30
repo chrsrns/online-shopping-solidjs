@@ -167,14 +167,17 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
             </div>
 
             <Show when={props.itemsOnCart.length > 0}>
-              <div class="flex bg-walnut_brown-900 p-4 dark:bg-walnut_brown-300 dark:text-white">
-                <div class="flex-grow">Total</div>
-                <div>
+              <div class="bg-walnut_brown-900dark:bg-walnut_brown-300 flex dark:text-white">
+                <div class="flex-grow p-4">Total</div>
+                <div class="p-4">
                   {Number(totalPrice()).toLocaleString("en", {
                     style: "currency",
                     currency: "PHP",
                   })}
                 </div>
+                <button class="rounded-ss-lg bg-yellow-400 px-8 py-4 text-black">
+                  Checkout
+                </button>
               </div>
             </Show>
           </div>
