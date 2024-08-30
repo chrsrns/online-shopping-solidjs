@@ -19,6 +19,7 @@ interface CartOffcanvasProps {
   itemsOnCart: CartItemEntry[];
   onItemDelete: (item: CartItemEntry) => void;
   onItemSearch: (item: ProductItem) => void;
+  onCheckout: () => void;
 }
 const CartOffcanvas = (props: CartOffcanvasProps) => {
   // TODO: Themeing
@@ -175,7 +176,10 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
                     currency: "PHP",
                   })}
                 </div>
-                <button class="rounded-ss-lg bg-yellow-400 px-8 py-4 text-black">
+                <button
+                  onClick={props.onCheckout}
+                  class="rounded-ss-lg bg-yellow-400 px-8 py-4 text-black"
+                >
                   Checkout
                 </button>
               </div>

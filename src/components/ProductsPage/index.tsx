@@ -18,6 +18,7 @@ import { CartItemEntry } from "../CheckoutCart/CartItemEntry";
 import { FaSolidCartShopping, FaSolidSpinner } from "solid-icons/fa";
 import toast, { Toaster } from "solid-toast";
 import { A, useSearchParams } from "@solidjs/router";
+import PostCheckoutModal from "../PostCheckoutModal";
 
 const fetchShopItemsUrl = DEV
   ? "http://127.0.0.1:8000/api/shopitems"
@@ -50,6 +51,7 @@ const ProductsPage = () => {
   let topBar!: HTMLDivElement;
   const [shopItems] = createResource(fetchShopItems);
   const [showOffCanvas, setShowOffCanvas] = createSignal(false);
+  const [showPostCheckout, setShowPostCheckout] = createSignal(false);
   const [productItem, setProductItem] = createSignal<ProductItem>();
   const [cartItems, setCartItems] = createSignal<CartItemEntry[]>([]);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -112,6 +114,13 @@ const ProductsPage = () => {
           }}
         ></ProductItemModal>
       </Show>
+      <Show when={showPostCheckout()}>
+        <PostCheckoutModal
+          onCloseClick={() => {
+            setShowPostCheckout(false);
+          }}
+        ></PostCheckoutModal>
+      </Show>
       <Topbar
         ref={topBar}
         children={[
@@ -151,6 +160,10 @@ const ProductsPage = () => {
         onItemSearch={(item) => {
           setShowOffCanvas(false);
           setSearchParams({ ...searchParams, product_id: item.id });
+        }}
+        onCheckout={() => {
+          setShowOffCanvas(false);
+          setShowPostCheckout(true);
         }}
       />
       <div
