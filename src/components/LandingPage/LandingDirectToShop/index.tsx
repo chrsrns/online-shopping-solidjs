@@ -49,25 +49,25 @@ const LandingDirectToShop = (props: ComponentRefProps) => {
                 {(item, index) => {
                   if (index() > 3) return <></>;
                   return (
-                    <a
+                    <A
+                      href={`/shop?product_id=${item.id}`}
                       class="block aspect-square max-w-44 overflow-clip rounded-xl border shadow-sm hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-                      href="#"
                     >
                       <img class="h-full object-cover" src={item.img_link} />
 
                       <h2 class="mt-2 hidden font-bold dark:text-timberwolf-800">
                         Accountant
                       </h2>
-                    </a>
+                    </A>
                   );
                 }}
               </For>
-              <a
+              <A
                 class="flex aspect-square max-w-44 items-center justify-center overflow-clip rounded-xl border shadow-sm hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-                href="#"
+                href="/shop"
               >
                 <h2 class="font-bold dark:text-timberwolf-800">And more...</h2>
-              </a>
+              </A>
             </div>
           </div>
         </div>
