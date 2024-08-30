@@ -15,7 +15,7 @@ import { match } from "oxide.ts";
 import { ProductItem } from "./ProductItem";
 import CartOffcanvas from "../CheckoutCart";
 import { CartItemEntry } from "../CheckoutCart/CartItemEntry";
-import { FaSolidCartShopping } from "solid-icons/fa";
+import { FaSolidCartShopping, FaSolidSpinner } from "solid-icons/fa";
 import toast, { Toaster } from "solid-toast";
 import { useSearchParams } from "@solidjs/router";
 
@@ -164,6 +164,11 @@ const ProductsPage = () => {
         </h1>
         <div class="grid grid-cols-1 gap-4 px-8 sm:px-16 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           <Switch>
+            <Match when={shopItems.loading}>
+              <div class="flex w-full justify-center pb-6 dark:text-white">
+                <FaSolidSpinner class="animate-fade_in_slow_loading text-2xl" />
+              </div>
+            </Match>
             <Match when={shopItems.error}>
               <span>Error: {shopItems.error}</span>
             </Match>
