@@ -23,7 +23,7 @@ const LandingProductsCarousel = (props: ComponentRefProps) => {
     <main class="snap-center">
       <div
         ref={props.ref}
-        class="flex w-full flex-col items-center bg-timberwolf-900 pt-8 dark:bg-dim_gray"
+        class="flex w-full flex-col items-center bg-timberwolf-900 py-8 dark:bg-dim_gray"
       >
         <div class="max-w-xl px-4 text-center lg:text-left rtl:lg:text-right">
           <h2 class="mb-8 text-3xl font-bold tracking-tight text-gray-900 sm:mb-10 sm:text-4xl dark:text-white">
@@ -38,7 +38,7 @@ const LandingProductsCarousel = (props: ComponentRefProps) => {
                 <div class="flex h-full flex-shrink-0 flex-grow basis-full snap-center flex-col items-center justify-center overflow-clip rounded-md bg-timberwolf-700 sm:basis-4/5 dark:bg-walnut_brown-400 dark:text-white">
                   <div class="flex w-full flex-grow flex-col items-stretch overflow-auto sm:flex-row">
                     <div class="flex flex-col items-center rounded-lg p-6">
-                      <div class="mb-4 size-48">
+                      <div class="mb-4 size-36 sm:size-48">
                         <img
                           src={item.img_link}
                           alt=""
