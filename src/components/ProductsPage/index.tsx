@@ -178,14 +178,7 @@ const ProductsPage = () => {
                   const productItemFromData = ProductItem.fromData(item);
                   return match(productItemFromData, {
                     Some: (productItem) => {
-                      const [image] = createResource(async () => {
-                        return await fetch(productItem.img_link)
-                          .then((response) => response.blob())
-                          .then((blob) => {
-                            const url = URL.createObjectURL(blob);
-                            return url;
-                          });
-                      });
+                      let [showImage, setShowImage] = createSignal(false);
 
                       return (
                         <a
@@ -220,9 +213,12 @@ const ProductsPage = () => {
 
                           <div class="flex h-64 w-full justify-center bg-white sm:h-72">
                             <img
-                              src={image()}
+                              src={productItem.img_link}
                               alt=""
-                              class={`${image() ? "opacity-100" : "opacity-0"} object-contain transition duration-500 group-hover:scale-105`}
+                              onload={(e) => {
+                                setShowImage(true);
+                              }}
+                              class={`${showImage() ? "opacity-100" : "opacity-0"} object-contain transition duration-500 group-hover:scale-105`}
                             />
                           </div>
 
