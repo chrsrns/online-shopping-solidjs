@@ -183,8 +183,7 @@ const ProductsPage = () => {
                       let [showImage, setShowImage] = createSignal(false);
 
                       return (
-                        <a
-                          href="#"
+                        <div
                           class="group relative block overflow-hidden rounded-lg shadow-lg"
                           onClick={() => {
                             toast.remove();
@@ -253,7 +252,7 @@ const ProductsPage = () => {
                               </button>
                             </form>
                           </div>
-                        </a>
+                        </div>
                       );
                     },
                     None: () => {
