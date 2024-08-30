@@ -153,7 +153,9 @@ const ProductsPage = () => {
           setSearchParams({ ...searchParams, product_id: item.id });
         }}
       />
-      <div class="relative flex-grow overflow-scroll">
+      <div
+        class={`${shopItems() ? "opacity-100" : "opacity-0"} relative flex-grow overflow-scroll transition`}
+      >
         <div
           class={`${productId() || showOffCanvas() ? "invisible opacity-0" : "visible opacity-100"} pointer-events-none fixed z-[15] h-full w-full transform p-4 transition-all`}
         >
