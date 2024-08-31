@@ -28,7 +28,7 @@ const LandingPage = () => {
   );
 
   onMount(() => {
-    const calcedHeight = `calc(100vh - ${topBar.clientHeight}px)`;
+    const calcedHeight = `calc(100dvh - ${topBar.clientHeight}px)`;
 
     contentsParent.addEventListener("scroll", throttledGetCenteredChild);
     contentsParent.style.setProperty("height", calcedHeight);
@@ -39,7 +39,7 @@ const LandingPage = () => {
   });
 
   createEffect(() => {
-    const calcedHeight = `calc(100vh - ${topBar.clientHeight}px)`;
+    const calcedHeight = `calc(100dvh - ${topBar.clientHeight}px)`;
     if (isSmall()) landingShop.style.setProperty("height", calcedHeight);
     else landingShop.style.removeProperty("height");
   });
