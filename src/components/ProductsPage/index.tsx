@@ -97,7 +97,7 @@ const ProductsPage = () => {
   // This is because most images taken from the Internet are in this aspect ratio.
   return (
     <div
-      class={`${productId() || showOffCanvas() ? "overflow-hidden" : "overflow-y-scroll"} flex h-screen flex-col dark:bg-walnut_brown-400`}
+      class={`${productId() || showOffCanvas() ? "overflow-hidden" : "overflow-y-scroll"} flex h-dvh flex-col dark:bg-walnut_brown-400`}
     >
       <Show when={productId() && productItem()}>
         <ProductItemModal

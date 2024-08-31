@@ -15,7 +15,7 @@ const AboutPage = () => {
   let topBar!: HTMLDivElement;
 
   return (
-    <div class="min-h-screen overflow-auto bg-timberwolf-900 dark:bg-walnut_brown-400 dark:text-gray-100">
+    <div class="min-h-dvh overflow-auto bg-timberwolf-900 dark:bg-walnut_brown-400 dark:text-gray-100">
       <Topbar ref={topBar} />
       <div class="flex flex-col">
         <div class="bg-walnut_brown-800 dark:bg-walnut_brown-500"></div>

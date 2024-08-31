@@ -47,7 +47,7 @@ const CartOffcanvas = (props: CartOffcanvasProps) => {
       ></div>
 
       <div
-        class={`pointer-events-none fixed inset-0 z-10 h-screen w-screen overflow-y-auto transition-offcanvas`}
+        class={`pointer-events-none fixed inset-0 z-10 h-dvh w-screen overflow-y-auto transition-offcanvas`}
       >
         <div class="relative flex min-h-full flex-col items-end">
           <div
